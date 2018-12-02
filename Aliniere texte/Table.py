@@ -13,9 +13,9 @@ def Build_Table(text1, text2, gap_penalty, mismatch_penalty):
             row.append(0)
         table.append(row)
     for i in range(n+1):
-        table[i][0]=i*pgap
+        table[i][0]=i*gap_penalty
     for j in range(m+1):
-        table[0][j]=j*pgap
+        table[0][j]=j*gap_penalty
     for i in range(1,n+1):
         for j in range(1,m+1):
             if t1[i-1]==t2[j-1]:
