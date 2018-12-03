@@ -27,3 +27,13 @@ npm run dev
 
 
 In cazul erorii EADDRINUSE, se poate modifica usor portul de la care va rula serverul din fisierul .env creat precedent.
+
+### Upload Setup
+
+Form-ul pentru upload trebuie sa contina enctype="multipart/form-data".
+Input-ul trebuie sa aiba numele "mySound".
+```
+<form action="/profile" method="post" enctype="multipart/form-data">
+  <input type="file" name="mySound" />
+</form>
+```
