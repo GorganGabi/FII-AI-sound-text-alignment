@@ -1,5 +1,8 @@
 const multer = require('multer')
 const path = require('path')
+const spawn = require("child_process").spawn
+const config = require ("../src/config").default
+
 
 module.exports.uploading = (req, res) => {
 
@@ -31,9 +34,30 @@ module.exports.uploading = (req, res) => {
 
   upload(req, res, (err) => {
     if (err) {
-      res.json({error: 'Fisierul nu s-a putut incarca...Extensie gresita. Uploadati din nou!'})
+      const error = {error: 'Fisierul nu s-a putut incarca...Extensie gresita. Uploadati din nou!'};
+      get_sound_alignment_result(error, res)
     }
-    else
-      res.json({upload: req.file})
+    else {
+      const result = {upload: req.file}
+      get_sound_alignment_result(result, res)
+    }
   })
+}
+
+function get_sound_alignment_result(input, res) {
+    // CALL PYTHON MODULE TO GET THE RESULT
+    input = JSON.stringify(input)
+    const pythonProcess = spawn("py", [config.sound_alignment_file_path, input])
+    let response = "";
+
+    pythonProcess.stdout.on("data", (data) => {
+        response += data
+    });
+    pythonProcess.stdout.on("error", (err) => {
+        res.json(err)
+    });
+    pythonProcess.stdout.on("end", () => {
+        response = JSON.parse(response)
+        res.json(response)
+    });
 }

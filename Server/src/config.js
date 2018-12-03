@@ -16,7 +16,8 @@ const {error, value: envVars} = Joi.validate(process.env, envVarsSchema);
 
 const config = {
     env: envVars.NODE_ENV,
-    port: envVars.SERVER_PORT
+    port: envVars.SERVER_PORT,
+    sound_alignment_file_path: envVars.SOUND_ALIGNMENT_FILE_PATH
 };
 
 export default config
