@@ -37,3 +37,5 @@ Input-ul trebuie sa aiba numele "mySound".
   <input type="file" name="mySound" />
 </form>
 ```
+
+End point-ul la care se gaseste controllerul de upload este: /api/upload
