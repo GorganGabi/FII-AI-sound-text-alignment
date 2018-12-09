@@ -1,5 +1,8 @@
 import os
 import sys
+
+print("Running Python {}".format(sys.version_info))
+
 from pocketsphinx import AudioFile, get_model_path, get_data_path
 
 
@@ -10,10 +13,11 @@ help = """Arguments for console usage:
 """
 
 
-def get_phonemes_from_file(file_path):
+def get_phonemes_from_file(file_path, detailed=False):
     """
-    :param file_path: audio file (must be raw 16khz 16bit)
-    :return: a list of phrases made of phonemes
+    :param file_path: path to audio file (must be raw 16khz 16bit)
+    :param detailed: False - return only phonemes; True - return tuples (phoneme, start_frame, end_frame)
+    :return: a list of phrases made of phonemes/tuples
     """
 
     model_path = get_model_path()
@@ -37,7 +41,22 @@ def get_phonemes_from_file(file_path):
     phrases = []
 
     for phrase in audio:
-        phrases.append(str(phrase))
+        phrases.append(phrase.segments(detailed=detailed))
+
+    if detailed:
+
+        detailed_phrases = []
+
+        for phrase in phrases:
+
+            detailed_phrase = []
+
+            for p in phrase:
+                d = (p[0], p[2], p[3])
+                detailed_phrase.append(d)
+            detailed_phrases.append(detailed_phrase)
+
+        return detailed_phrases
 
     return phrases
 
@@ -67,7 +86,7 @@ def get_words_from_file(file_path):
     phrases = []
 
     for phrase in audio:
-        phrases.append(str(phrase))
+        phrases.append(phrase.segments(detailed=True))
 
     return phrases
 
@@ -91,8 +110,12 @@ if __name__ == "__main__":
         if f is None:
             exit(0)
 
+        detailed=False
+        if '-d' in sys.argv:
+            detailed=True
+
         if os.path.exists(sys.argv[2]) and os.path.isfile(sys.argv[2]):
-            phrases = f(sys.argv[2])
+            phrases = f(sys.argv[2], detailed=detailed)
             for phrase in phrases:
                 print(phrase)
         else:
