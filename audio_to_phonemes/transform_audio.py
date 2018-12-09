@@ -64,7 +64,7 @@ def get_phonemes_from_file(file_path, detailed=False, model='en-us'):
     return phrases
 
 
-def get_words_from_file(file_path):
+def get_words_from_file(file_path, detailed, model):
     """
     :param file_path: audio file (must be raw 16khz 16bit)
     :return: a list of phrases made of words
@@ -89,7 +89,7 @@ def get_words_from_file(file_path):
     phrases = []
 
     for phrase in audio:
-        phrases.append(phrase.segments(detailed=True))
+        phrases.append(str(phrase))
 
     return phrases
 
