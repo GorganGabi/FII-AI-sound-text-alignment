@@ -1,5 +1,9 @@
-t1 = ["A", "G", "G", "G", "C", "T"]
-t2 = ["A", "G", "G", "C", "A"]
+#t1 = ["A", "G", "G", "G", "C", "T"]
+#t2 = ["A", "G", "G", "C", "A"]
+
+t1 = ["G", "C", "A", "T", "G", "C", "U"]
+t2 = ["G", "A", "T", "T", "A", "C", "A"]
+
 pgap = -2
 pxy = -3
 
@@ -46,20 +50,20 @@ def build_table(text1, text2, gap_penalty, mismatch_penalty):
             ypos = ypos - 1
             i = i - 1
             j = j - 1
-        elif table[i - 1][j - 1] + mismatch_penalty == table[i][j]:
+        elif (table[i - 1][j - 1] + mismatch_penalty) == table[i][j]:
             xans[xpos] = text1[i - 1]
             yans[ypos] = text2[j - 1]
             xpos = xpos - 1
             ypos = ypos - 1
             i = i - 1
-            j = i - 1
-        elif table[i - 1][j] + gap_penalty == table[i][j]:
+            j = j - 1
+        elif (table[i - 1][j] + gap_penalty) == table[i][j]:
             xans[xpos] = text1[i - 1]
             yans[ypos] = '_'
             xpos = xpos - 1
             ypos = ypos - 1
             i = i - 1
-        elif table[i][j - 1] + gap_penalty == table[i][j]:
+        elif (table[i][j - 1] + gap_penalty) == table[i][j]:
             xans[xpos] = '_'
             yans[ypos] = text2[j - 1]
             xpos = xpos - 1
