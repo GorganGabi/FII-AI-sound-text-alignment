@@ -1,3 +1,5 @@
+import argparse
+
 #t1 = ["A", "G", "G", "G", "C", "T"]
 #t2 = ["A", "G", "G", "C", "A"]
 
@@ -6,6 +8,16 @@ t2 = ["G", "A", "T", "T", "A", "C", "A"]
 
 pgap = -2
 pxy = -3
+
+def define_parser():
+	parser = argparse.ArgumentParser(description = "Parse args for text alignment script.")
+	parser.add_argument('-f1', '--file1', help='path to the first file to be aligned')
+	parser.add_argument('-f2', '--file2', help='path to the second file to be aligned')
+	parser.add_argument('-o', '--output', help='path to the final alignment (result alignment file)')
+	
+	args = parser.parse_args()
+
+	return [args.file1, args.file2, args.output]
 
 
 def build_table(text1, text2, gap_penalty, mismatch_penalty):
@@ -98,5 +110,6 @@ def build_table(text1, text2, gap_penalty, mismatch_penalty):
     print(yans[id:])
 
 
+print(define_parser())
 build_table(t1, t2, pgap, pxy)
 
