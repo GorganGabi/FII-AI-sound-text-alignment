@@ -38,6 +38,8 @@ module.exports.uploading = (req, res) => {
             get_sound_alignment_result(error, res)
         }
         else {
+            console.log('[SERVER] Am primit in urma upload-ului fisierul:');
+            console.log(req.file)
             const result = {upload: req.file};
             get_sound_alignment_result(result, res)
         }
@@ -47,6 +49,7 @@ module.exports.uploading = (req, res) => {
 function get_sound_alignment_result(input, res) {
     // CALL PYTHON MODULE TO GET THE RESULT
     input = JSON.stringify(input);
+    console.log('[SERVER] Trimitem ca parametru fisierul primit catre modulul:' + path.join(process.cwd(), 'dummy.py'));
     const pythonProcess = spawn("py", [path.join(process.cwd(), 'dummy.py'), input]);
     let response = "";
 
@@ -56,8 +59,11 @@ function get_sound_alignment_result(input, res) {
     pythonProcess.stdout.on("error", (err) => {
         res.json(err)
     });
+
     pythonProcess.stdout.on("end", () => {
-        response = JSON.parse(response)
+        console.log('[SERVER] Am primit de la modulul de python urmatorul raspuns:');
+        response = JSON.parse(response);
+        console.log(response);
         res.json(response)
     });
 }
