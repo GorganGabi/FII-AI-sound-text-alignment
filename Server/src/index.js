@@ -28,8 +28,8 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/index.html'))
 });
 
-app.server.listen(config.port, () => {
-    console.log(`Started on port ${config.port}(${config.env})`)
+app.server.listen(8080, () => {
+    console.log(`Started on port 8080(${config.env})`)
 });
 
 export default app
