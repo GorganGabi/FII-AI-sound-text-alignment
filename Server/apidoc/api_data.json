@@ -26,7 +26,7 @@
       "examples": [
         {
           "title": "Input",
-          "content": "\"upload\": {\n      \"fieldname\": \"mySound\",\n      \"originalname\": \"ceva.mp3\",\n      \"encoding\": \"7bit\",\n      \"mimetype\": \"audio/mpeg\",\n      \"destination\": \"./uploads\",\n      \"filename\": \"mySound-1544533515623.mp3\",\n      \"path\": \"uploads\\\\mySound-1544533515623.mp3\",\n      \"size\": 0\n  }",
+          "content": "\"upload\": {\n      \"text\": \"Acesta este un text frumos!\"\n  }",
           "type": "json"
         }
       ]
@@ -35,7 +35,7 @@
       "examples": [
         {
           "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n  \"msg\":\"Success\"\n}",
+          "content": " HTTP/1.1 200 OK\n {\n    \"upload\": {\n    \"fieldname\": \"mySound\",\n    \"originalname\": \"ceva.mp3\",\n    \"encoding\": \"7bit\",\n    \"mimetype\": \"audio/mpeg\",\n    \"destination\": \"./uploads\",\n    \"filename\": \"mySound-1544533515623.mp3\",\n    \"path\": \"uploads\\\\mySound-1544533515623.mp3\",\n    \"size\": 0\n}\n }",
           "type": "json"
         }
       ]

@@ -14,6 +14,12 @@ api.get('/', (req, res) => {
  * @apiParam {dataForm} mySound Input tag name
  * @apiParamExample {json} Input
  * "upload": {
+ *       "text": "Acesta este un text frumos!"
+ *   }
+ * @apiSuccessExample {json} Success
+ *    HTTP/1.1 200 OK
+ *    {
+ *       "upload": {
  *       "fieldname": "mySound",
  *       "originalname": "ceva.mp3",
  *       "encoding": "7bit",
@@ -22,11 +28,7 @@ api.get('/', (req, res) => {
  *       "filename": "mySound-1544533515623.mp3",
  *       "path": "uploads\\mySound-1544533515623.mp3",
  *       "size": 0
- *   }
- * @apiSuccessExample {json} Success
- *    HTTP/1.1 200 OK
- *    {
- *      "msg":"Success"
+ *      }
  *    }
  * @apiErrorExample {json} Register error
  *    HTTP/1.1 500 Internal Server Error
