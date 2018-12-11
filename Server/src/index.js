@@ -28,6 +28,10 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/index.html'))
 });
 
+app.get('/audio', (req, res) => {
+    res.sendFile(path.join("D:\\Facultate\\IA\\Proiect\\UAIC-FII-AI-sound-text-alignment\\Interfata"+ '/proiectIA.html'))
+});
+
 app.server.listen(8080, () => {
     console.log(`Started on port 8080(${config.env})`)
 });
