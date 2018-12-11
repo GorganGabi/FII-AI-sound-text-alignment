@@ -62,7 +62,9 @@ function get_sound_alignment_result(input, res) {
 
     pythonProcess.stdout.on("end", () => {
         console.log('[SERVER] Am primit de la modulul de python urmatorul raspuns:');
-        response = JSON.parse(response);
+        if(response) {
+            response = JSON.parse(response);
+        }
         console.log(response);
         res.json(response)
     });
