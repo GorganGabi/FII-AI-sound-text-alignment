@@ -10,12 +10,13 @@ api.get('/', (req, res) => {
 /**
  * @api {post} /api/upload Speech recognition
  * @apiGroup Feedback
- * @apiParam {String} text User's text
+ * @apiParam {String} upload.text User's text
  * @apiParam {dataForm} mySound Input tag name
  * @apiParamExample {json} Input
  * "upload": {
  *       "text": "Acesta este un text frumos!"
  *   }
+ * "mySound": sunet.mp3
  * @apiSuccessExample {json} Success
  *    HTTP/1.1 200 OK
  *    {
