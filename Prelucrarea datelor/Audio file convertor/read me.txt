@@ -1,0 +1,11 @@
+This script converts WAV and FLAC audio files to 16bit, 16khz, mono WAV files. It makes use of the Sound eXchange command line utility for Windows.
+
+Requirements:
+Running the script for the first time will generate the required folders.
+The sox folder should contain the sox.exe executable file, along with the dll files it depends on. It can be downloaded from the following link:
+http://sox.sourceforge.net/Main/HomePage
+
+Usage:
+-Place the audio files you want to convert in the "input" folder
+-Run convert.py
+-The "output" folder should now contain audio files suitable for usage with PocketSphinx
