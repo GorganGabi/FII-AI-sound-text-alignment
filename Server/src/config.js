@@ -20,6 +20,4 @@ const config = {
     sound_alignment_file_path: envVars.SOUND_ALIGNMENT_FILE_PATH
 };
 
-module.exports= {
-    config:config
-}
+exports.config = config;

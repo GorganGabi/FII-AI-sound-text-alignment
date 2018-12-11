@@ -14,14 +14,15 @@ module.exports.uploading = (req, res) => {
     });
 
     function checkFileType(file, cb) {
+
         const filetypes = /mp3|wav/;
         const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
         let mimetype;
-        (file.mimetype === 'audio/mpeg' || file.mimetype === 'audio/wav') ? mimetype = true : mimetype = false;
+        (file.mimetype === 'audio/mpeg' || file.mimetype === 'audio/wav'|| file.mimetype === 'audio/mp3') ? mimetype = true : mimetype = false;
         if (mimetype && extname) {
             return cb(null, true)
         } else {
-            cb('Eroare: Doar imagini!')
+            cb('Eroare: Doar audio!')
         }
     }
 

@@ -5,7 +5,8 @@ import express from 'express'
 import helmet from 'helmet'
 import bodyParser from 'body-parser'
 import api from './api'
-import config from './config'
+import {config} from './config'
+import {getRootPath} from '../helpers/parser'
 
 require('dotenv').config();
 let app = express();
@@ -20,20 +21,24 @@ app.use(express.json());
 app.use(helmet());
 
 // static files
-app.use(express.static('public'));
+let root;
+getRootPath(process.cwd(), (res) => {
+    root = res
+});
+
+app.use(express.static(path.join(root.toString(), 'Interfata/')))
 
 app.use('/api', api);
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/index.html'))
 });
-
 app.get('/audio', (req, res) => {
-    res.sendFile(path.join("D:\\Facultate\\IA\\Proiect\\UAIC-FII-AI-sound-text-alignment\\Interfata"+ '/proiectIA.html'))
+    res.sendFile(path.join(root.toString(), 'Interfata/proiectIA.html'))
 });
 
-app.server.listen(8080, () => {
-    console.log(`Started on port 8080(${config.env})`)
+app.server.listen(config.port, () => {
+    console.log(`Started on port ${config.port}(${config.env})`)
 });
 
 export default app

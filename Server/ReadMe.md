@@ -1,4 +1,5 @@
 
+
 # FII-AI-sound-text-alignment
 
 ## Getting Started
@@ -32,10 +33,15 @@ In cazul erorii EADDRINUSE, se poate modifica usor portul de la care va rula ser
 
 Form-ul pentru upload trebuie sa contina enctype="multipart/form-data".
 Input-ul trebuie sa aiba numele "mySound".
+
+
 ```
-<form action="/profile" method="post" enctype="multipart/form-data">
-  <input type="file" name="mySound" />
-</form>
+  <form action="api/upload" method="post" enctype="multipart/form-data">
+               <input type="file" name="mySound" />
+        <input type='submit' value='Send'>
+      </form>
 ```
 
 End point-ul la care se gaseste controllerul de upload este: /api/upload
+Pagina principala se va gasi la adresa: http://localhost:8080/audio , care va randa fisierul
+proiectIA.html (inclusiv css+js) din calea: /Interfata/proiectIA.html
