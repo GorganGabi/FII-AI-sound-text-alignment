@@ -64,9 +64,11 @@ def get_phonemes_from_file(file_path, detailed=False, model='en-us'):
     return phrases
 
 
-def get_words_from_file(file_path, detailed, model):
+def get_words_from_file(file_path, detailed=False, model='en-us'):
     """
     :param file_path: audio file (must be raw 16khz 16bit)
+    :param detailed: False - (default) return only phonemes; True - return tuples (phoneme, start_frame, end_frame)
+    :param model: specify language model
     :return: a list of phrases made of words
     """
 
@@ -79,8 +81,8 @@ def get_words_from_file(file_path, detailed, model):
         'buffer_size': 2048,
         'no_search': False,
         'full_utt': False,
-        'hmm': os.path.join(model_path, 'en-us'),
-        'lm': os.path.join(model_path, 'en-us.lm.bin'),
+        'hmm': os.path.join(model_path, model),
+        'lm': os.path.join(model_path, '{}.lm.bin'.format(model)),
         'dict': os.path.join(model_path, 'cmudict-en-us.dict')
     }
 
@@ -89,7 +91,22 @@ def get_words_from_file(file_path, detailed, model):
     phrases = []
 
     for phrase in audio:
-        phrases.append(str(phrase))
+        phrases.append(phrase.segments(detailed=detailed))
+
+    if detailed:
+
+        detailed_phrases = []
+
+        for phrase in phrases:
+
+            detailed_phrase = []
+
+            for p in phrase:
+                d = (p[0], p[2], p[3])
+                detailed_phrase.append(d)
+            detailed_phrases.append(detailed_phrase)
+
+        return detailed_phrases
 
     return phrases
 
