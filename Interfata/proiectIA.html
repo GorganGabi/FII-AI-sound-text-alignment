@@ -15,11 +15,8 @@
     <h1>Fun way to align your text</h1>
     <p>Insert your text&audio file down below</p>
     <form action="api/upload" method="POST" enctype="multipart/form-data">
-      <textarea rows="2" cols="50" class="mainTexarea" placeholder="Textul tau aici"></textarea>
-      <br>
-      <br>
+      <textarea rows="2" cols="50" class="mainTexarea"  name="text" placeholder="Textul tau aici"></textarea>
        <label for="browse"></label>
-
           <br>
              <input type="file" name="mySound" >
       <input type='submit' name='trimite' value='Send'>
@@ -32,20 +29,13 @@
     container: '#waveform',
     scrollParent: true,
     waveColor: 'green',
-    progressColor: 'white',
-    
+    progressColor: 'white'
 });
   wavesurfer.on('ready', function () {
     wavesurfer.play();
 });
-  wavesurfer.on('pause', function () {
-    wavesurfer.params.container.style.opacity = 0.9;
-});
-  wavesurfer.pause('play', function () {
-    wavesurfer.params.container.style.opacity = 1;
-});
 
-  wavesurfer.load('../server/uploads/muzica2.mp3');
+  wavesurfer.load('muzica2.mp3');
 </script>
 
 <div id="textFormDiv">
