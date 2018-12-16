@@ -4,11 +4,16 @@ Gorgan Gabi (Team Lider):
 - coordonare
 - research pentru algoritm
 - implementare algoritm
+- unit tests
+- refactorizare cod
+- integrare
 
 Vitel Silviu:
 - research pentru algoritm
 - implementare algoritm
 - parser
+- refactorizare cod
+- integrare
 
 Balica Ema:
 - research pentru algoritm
