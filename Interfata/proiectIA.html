@@ -21,6 +21,9 @@
              <input type="file" name="mySound" >
       <input type='submit' name='trimite' value='Send'>
     </form>
+    <br>
+    <br>
+    <br>
   </div>
   <script src="https://unpkg.com/wavesurfer.js"></script>
 <div id="waveform" ></div>
@@ -29,20 +32,13 @@
     container: '#waveform',
     scrollParent: true,
     waveColor: 'green',
-    progressColor: 'white',
-    
+    progressColor: 'white'
 });
   wavesurfer.on('ready', function () {
     wavesurfer.play();
 });
-  wavesurfer.on('pause', function () {
-    wavesurfer.params.container.style.opacity = 0.9;
-});
-  wavesurfer.pause('play', function () {
-    wavesurfer.params.container.style.opacity = 1;
-});
 
-  wavesurfer.load('../server/uploads/muzica2.mp3');
+  wavesurfer.load('muzica2.mp3');
 </script>
 
 <div id="textFormDiv">
