@@ -18,9 +18,8 @@ Example: transform_audio.py -p sample1.raw -model=it -d
 def get_phonemes_from_file(file_path, detailed=False, model='en-us'):
     """
     :param file_path: path to audio file (must be raw 16khz 16bit)
-    :param detailed: False - (default) return only phonemes; True - return tuples (phoneme, start_frame, end_frame)
+    :param detailed: False - (default) return string list; True - list of dicts {"word", "start", "end"}
     :param model: specify language model
-    :return: a list of phrases made of phonemes/tuples
     """
 
     model_path = get_model_path()
@@ -43,23 +42,22 @@ def get_phonemes_from_file(file_path, detailed=False, model='en-us'):
 
     phrases = []
 
-    for phrase in audio:
-        phrases.append(phrase.segments(detailed=detailed))
-
     if detailed:
 
-        detailed_phrases = []
+        for phrase in audio:
+            phrases.append(phrase.segments(detailed=detailed))
+
+        out_list = []
 
         for phrase in phrases:
 
-            detailed_phrase = []
-
             for p in phrase:
-                d = (p[0], p[2], p[3])
-                detailed_phrase.append(d)
-            detailed_phrases.append(detailed_phrase)
+                out_list.append({"phoneme": p[0], "start": p[2]/100.00, "end": p[3]/100.00})
 
-        return detailed_phrases
+        return out_list
+
+    for phrase in audio:
+        phrases.append(str(phrase))
 
     return phrases
 
@@ -67,9 +65,8 @@ def get_phonemes_from_file(file_path, detailed=False, model='en-us'):
 def get_words_from_file(file_path, detailed=False, model='en-us'):
     """
     :param file_path: audio file (must be raw 16khz 16bit)
-    :param detailed: False - (default) return only phonemes; True - return tuples (phoneme, start_frame, end_frame)
+    :param detailed: False - (default) return string list; True - list of dicts {"word", "start", "end"}
     :param model: specify language model
-    :return: a list of phrases made of words
     """
 
     model_path = get_model_path()
@@ -90,23 +87,23 @@ def get_words_from_file(file_path, detailed=False, model='en-us'):
 
     phrases = []
 
-    for phrase in audio:
-        phrases.append(phrase.segments(detailed=detailed))
-
     if detailed:
 
-        detailed_phrases = []
+        for phrase in audio:
+            phrases.append(phrase.segments(detailed=detailed))
+
+        out_list = []
 
         for phrase in phrases:
 
-            detailed_phrase = []
-
             for p in phrase:
-                d = (p[0], p[2], p[3])
-                detailed_phrase.append(d)
-            detailed_phrases.append(detailed_phrase)
 
-        return detailed_phrases
+                out_list.append({"word": p[0], "start": p[2]/100.00, "end": p[3]/100.00})
+
+        return out_list
+
+    for phrase in audio:
+        phrases.append(str(phrase))
 
     return phrases
 
