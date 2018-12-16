@@ -47,5 +47,5 @@ End point-ul la care se gaseste controllerul de upload este: /api/upload.
 Pagina principala se va gasi la adresa: http://localhost:8080/audio (atentie! serverul trebuie sa fie pornit) , care va randa fisierul
 proiectIA.html (inclusiv css+js) din calea: /Interfata/proiectIA.html
 
-###Documentatia
+### Documentatia
  Se gaseste in fisierul: Server/apidoc/index.html
