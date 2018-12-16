@@ -13,12 +13,9 @@
 
   <div class="main">
     <h1>Fun way to align your text</h1>
-    <p>Inset your text down below</p>
-    <form action="#">
-      <textarea rows="2" cols="50" class="mainTexarea" placeholder="Textul tau aici"></textarea>
-    </form>
-    <p>Insert your audio file down below</p>
+    <p>Insert your text&audio file down below</p>
     <form action="api/upload" method="POST" enctype="multipart/form-data">
+      <textarea rows="2" cols="50" class="mainTexarea"  name="text" placeholder="Textul tau aici"></textarea>
        <label for="browse"></label>
           <br>
              <input type="file" name="mySound" >
@@ -40,6 +37,7 @@
 
   wavesurfer.load('muzica2.mp3');
 </script>
+
 <div id="textFormDiv">
 <embed src="test.txt" id="textform">
 </div>
@@ -50,7 +48,7 @@
             var audioPlayer = doc.getElementById("audiofile");
             var subtitles = doc.getElementById("subtitles");
             var syncData = [
-                  { "end": "0.225","start": "0.125","text": "There" },
+                  { "start": "0.125","end": "0.225","text": "There" },
                   {"end": "0.485","start": "0.225","text": "were" },
                   /* ... and so on ... full json is in the demo */
                 ];
