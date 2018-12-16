@@ -7,16 +7,18 @@ Gorgan Daniel Mihai(Team Lider):
 - randarea fisierelor folosind o ruta relativa
 - crearea documentatie (apidoc) 
 - updatare documentatie ReadMe *
+- integrare module
 
 Marian Vlad Stefan:
 - crearea controllerului care se ocupa upload-ul pozelor si a textului primit ca input
 - rezolvare de bug-uri
 - updatare documentatie ReadMe *
+- integrare module
 
 Andrei Maxim:
 - crearea controllerului care apeleaza module de python cu informatiile primtie de la celalalt controller
 - rezolvare de bug-uri
 - updatare documentatie ReadMe *
-
+- integrare module
 * -> fiecare pentru propriul cod
 #########################
