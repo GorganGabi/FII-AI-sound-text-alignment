@@ -1,0 +1,24 @@
+#########################
+Last update: 11.12.2018
+Gorgan Gabi (Team Lider):
+- coordonare
+- research pentru algoritm
+- implementare algoritm
+
+Vitel Silviu:
+- research pentru algoritm
+- implementare algoritm
+- parser
+
+Balica Ema:
+- research pentru algoritm
+- implementare algoritm
+
+Arteni Vasile Bogdan:
+- research pentru algoritm
+- implementare algoritm
+
+Andrei Cristian:
+- research pentru algoritm
+- testare algortim
+###########################
