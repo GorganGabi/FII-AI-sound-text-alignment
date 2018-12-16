@@ -1,0 +1,1 @@
+ro_db.cd_cont_3000 is the first attempt of training an acoustic model. It is not usable in its current state.
