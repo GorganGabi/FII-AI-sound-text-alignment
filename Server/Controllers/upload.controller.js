@@ -40,7 +40,9 @@ module.exports.uploading = (req, res) => {
         }
         else {
             console.log('[SERVER] Am primit in urma upload-ului fisierul:');
-            console.log(req.file)
+            console.log(req.file);
+            console.log('[SERVER] Am primit in textul:');
+            console.log(req.body.text);
             const result = {upload: req.file};
             get_sound_alignment_result(result, res)
         }
