@@ -1,3 +1,5 @@
+import {getRootPath} from "../helpers/parser";
+
 const multer = require('multer')
 const path = require('path')
 const spawn = require("child_process").spawn;
@@ -52,8 +54,12 @@ module.exports.uploading = (req, res) => {
 function get_sound_alignment_result(input, res) {
     // CALL PYTHON MODULE TO GET THE RESULT
     input = JSON.stringify(input);
-    console.log('[SERVER] Trimitem ca parametru fisierul primit catre modulul:' + path.join(process.cwd(), 'dummy.py'));
-    const pythonProcess = spawn("py", [path.join(process.cwd(), 'dummy.py'), input]);
+    let root
+    getRootPath(process.cwd(), (res) => {
+        root = res
+    });
+    console.log('[SERVER] Trimitem ca parametru fisierul primit catre modulul:' + path.join(root, 'text_alignment/text_alignment.py'));
+    const pythonProcess = spawn("py", [path.join(path.join(root, 'text_alignment/text_alignment.py')), input]);
     let response = "";
 
     pythonProcess.stdout.on("data", (data) => {

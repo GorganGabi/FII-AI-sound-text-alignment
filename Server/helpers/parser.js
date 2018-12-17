@@ -1,6 +1,6 @@
 import path from 'path'
 
-export async function getRootPath(root,cb) {
+export function getRootPath(root,cb) {
     root = root.split('\\')
     let str = "";
     for (let i = 0; i < root.length; i++) {
