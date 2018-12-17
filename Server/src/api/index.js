@@ -13,23 +13,14 @@ api.get('/', (req, res) => {
  * @apiParam {String} upload.text User's text
  * @apiParam {dataForm} mySound Input tag name
  * @apiParamExample {json} Input
- * "upload": {
- *       "text": "Acesta este un text frumos!"
- *   }
+ * "text": "Acesta este un text frumos!"
  * "mySound": sunet.mp3
  * @apiSuccessExample {json} Success
  *    HTTP/1.1 200 OK
  *    {
- *       "upload": {
- *       "fieldname": "mySound",
- *       "originalname": "ceva.mp3",
- *       "encoding": "7bit",
- *       "mimetype": "audio/mpeg",
- *       "destination": "./uploads",
- *       "filename": "mySound-1544533515623.mp3",
- *       "path": "uploads\\mySound-1544533515623.mp3",
- *       "size": 0
- *      }
+ *       "syncData":[{"end":0.29,"start":0.16,"word":"to","matched":0},
+ *                  {"end":0.47,"start":0.3,"word":"the","matched":0},
+ *                  {"end":0.64,"start":0.48,"word":"end","matched":0}]
  *    }
  * @apiErrorExample {json} Register error
  *    HTTP/1.1 500 Internal Server Error

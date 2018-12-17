@@ -26,7 +26,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Input",
-          "content": "\"upload\": {\n      \"text\": \"Acesta este un text frumos!\"\n  }\n\"mySound\": sunet.mp3",
+          "content": "\"text\": \"Acesta este un text frumos!\"\n\"mySound\": sunet.mp3",
           "type": "json"
         }
       ]
@@ -35,7 +35,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n   \"upload\": {\n   \"fieldname\": \"mySound\",\n   \"originalname\": \"ceva.mp3\",\n   \"encoding\": \"7bit\",\n   \"mimetype\": \"audio/mpeg\",\n   \"destination\": \"./uploads\",\n   \"filename\": \"mySound-1544533515623.mp3\",\n   \"path\": \"uploads\\\\mySound-1544533515623.mp3\",\n   \"size\": 0\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"syncData\":[{\"end\":0.29,\"start\":0.16,\"word\":\"to\",\"matched\":0},\n              {\"end\":0.47,\"start\":0.3,\"word\":\"the\",\"matched\":0},\n              {\"end\":0.64,\"start\":0.48,\"word\":\"end\",\"matched\":0}]\n}",
           "type": "json"
         }
       ]
