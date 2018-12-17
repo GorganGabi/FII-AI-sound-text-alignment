@@ -148,7 +148,9 @@ def get_lists(arguments):
     word_list1 = [elem["word"] for elem in file1_data]
     '''
 
-    file1 = get_words_from_file(arguments[0])
+    file1_data = get_words_from_file(arguments[0])
+    file1_data = [remove_word_number(elem) for elem in file1_data if dict_is_ok(elem)]
+    word_list1 = [elem["word"] for elem in file1_data]
 
     file2 = open(arguments[1], "r")
     word_list2 = []
