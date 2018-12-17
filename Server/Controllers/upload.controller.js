@@ -83,7 +83,13 @@ function get_sound_alignment_result(res) {
             if (err) {
                 console.log(err)
             }
-            res.json({syncData: JSON.parse(data.toString())})
+
+            fs.writeFile(path.join(root, 'Interfata/vers.json'),  data.toString(), function (err) {
+                if (err) {
+                    return console.log(err);
+                }
+                res.json({syncData:JSON.parse(data.toString())})
+            });
         });
     });
 }
