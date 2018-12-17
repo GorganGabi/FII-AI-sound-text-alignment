@@ -751,5 +751,10 @@ def main():
     # output_structure.close()
 
 
+def buildPlainTextArchive (inFilename):
+    args = ['', '--infn', inFilename]
+    sys.argv = args
+    main()
+
 if __name__ == '__main__':
     main()
