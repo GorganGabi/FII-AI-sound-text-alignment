@@ -1,6 +1,6 @@
 import os
 import sox
-
+import sys
 
 def getFileExtension(inFilePath):
     extension = os.path.splitext(inFilePath)[1][1:]
@@ -15,6 +15,8 @@ Arguments:
         The given file system absolute path for the audio file to be converted. Includes
         extension (which must be '.raw').
 '''
+
+
 def convertFileToRaw(inFilePath, outFilePath):
     try:
         tfm = sox.Transformer();
@@ -29,3 +31,6 @@ def convertFileToRaw(inFilePath, outFilePath):
     except Exception as e:
         print(e)
         return
+
+
+convertFileToRaw(sys.argv[1], sys.argv[2])
