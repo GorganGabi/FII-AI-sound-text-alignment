@@ -68,9 +68,9 @@ function get_sound_alignment_result(res) {
     console.log('[SERVER] Trimitem ca parametru fisierul primit catre modulul:' + path.join(root, 'text_alignment/text_alignment.py'));
     const pythonProcess = spawn("py",
         [path.join(path.join(root, 'text_alignment/text_alignment.py')),
-            '-rec', path.join(path.join(process.cwd(), '/uploads/test.raw')),
-            '-orig', path.join(path.join(process.cwd(), '/uploads/text.txt')),
-            '-out', path.join(path.join(process.cwd(), '/uploads/response.txt'))
+            '-rec', path.join(path.join(process.cwd(), '/uploads/test.raw')), //argv [1] si argv[2]
+            '-orig', path.join(path.join(process.cwd(), '/uploads/text.txt')), //argv [3] si argv[4]
+            '-out', path.join(path.join(process.cwd(), '/uploads/response.txt')) //argv [5] si argv[6]
         ]);
     let response = "";
 
