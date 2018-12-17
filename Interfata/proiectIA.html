@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="proiectIA.css">
+	<script type="text/javascript" src="vers.json"></script>
 </head>
 <body>
 	<div class="header">
@@ -22,6 +23,7 @@
       <input type='submit' name='trimite' value='Send'>
     </form>
   </div>
+  <div class="demo">
   <script src="https://unpkg.com/wavesurfer.js"></script>
 <div id="waveform" ></div>
 <script type="text/javascript">
@@ -31,47 +33,67 @@
     waveColor: 'green',
     progressColor: 'white'
 });
-  wavesurfer.on('ready', function () {
+
+  wavesurfer.on('pause', function () {
+    wavesurfer.pause();
+	wavesurfer.params.container.style.opacity=0.9;
+});
+  wavesurfer.on('play', function () {
     wavesurfer.play();
 });
 
-  wavesurfer.load('muzica2.mp3');
+  wavesurfer.load('10bears.mp3');
 </script>
 
-<div id="textFormDiv">
-<embed src="test.txt" id="textform">
 </div>
-   <audio id="audiofile" src="muzica2.mp3" controls autostart></audio><br>
+</div>	
+<div id="textFormDiv">
+
+</div>
+<div id="audioDiv">
+   <audio controls=true id="audiofile" src="10bears.mp3" onplay="wavesurfer.playPause()">
+  </audio><br>
+</div>
         <div id="subtitles"></div>
         <script>
-        ( function(win, doc) {
-            var audioPlayer = doc.getElementById("audiofile");
-            var subtitles = doc.getElementById("subtitles");
-            var syncData = [
-                  { "start": "0.125","end": "0.225","text": "There" },
-                  {"end": "0.485","start": "0.225","text": "were" },
-                  /* ... and so on ... full json is in the demo */
-                ];
-            createSubtitle();
+  ( function(win, doc) {
+      var audioPlayer = doc.getElementById("audiofile");
+	  audioPlayer.muted=true;
+      var subtitles = doc.getElementById("subtitles");
+	  var syncData = data;
 
-            function createSubtitle()
-            {
-                var element;
-                for (var i = 0; i < syncData.length; i++) {
-                    element = doc.createElement('span');
-                    element.setAttribute("id", "c_" + i);
-                    element.innerText = syncData[i].text + " ";
-                    subtitles.appendChild(element);
-                }
-            }
+      createSubtitle();
 
-            audioPlayer.addEventListener("timeupdate", function(e){
-                syncData.forEach(function(element, index, array){
-                    if( audioPlayer.currentTime >= element.start && audioPlayer.currentTime <= element.end )
-                        subtitles.children[index].style.background = 'yellow';
-                });
-            });
-        }(window, document));
+      function createSubtitle()
+      {
+          var element;
+          for (var i = 0; i < syncData.length; i++) {
+              element = doc.createElement('span');
+              element.setAttribute("id", "c_" + i);
+              element.innerText = syncData[i].text + " ";
+              subtitles.appendChild(element);
+          }
+      }
+
+      audioPlayer.addEventListener("timeupdate", function(e){
+          syncData.forEach(function(element, index, array){
+              if( audioPlayer.currentTime >= element.start && audioPlayer.currentTime <= element.end )
+                  if(element.matched=="0")
+				  {	
+					subtitles.children[index].style.background = 'yellow';
+					subtitles.children[index-1].style.background = 'grey';
+				  }
+				  else if (element.matched=="1") 
+				  {
+					subtitles.children[index].style.background = 'red';
+					subtitles.children[index-1].style.background = 'grey';
+				  }
+				  
+          }
+		  ); 
+		  
+      });
+  }(window, document));
         </script>
 	<div class="footer">
   		<p> 2018 &copy; All rights reserved | developed by UAIC Students</p>

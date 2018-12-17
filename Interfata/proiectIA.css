@@ -75,10 +75,42 @@ form input {
    padding-bottom:5px;
    padding-left:5px;
    padding-right:5px;
+   margin-bottom: 50px;
 }
+
+
+.demo .controls{
+	padding: 10px 0;
+	text-align: center;
+}
+
+.demo .controls .btn{
+	margin: 10px;
+}
+.btn {
+	display: inline-block;
+    padding: .375rem 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+
+
 #waveform{
     width: 100%;
     padding-top: 30px;
+    margin-top: 50px;
 }
 #textform{
     color: white;
@@ -95,7 +127,13 @@ form input {
 #audiofile{
     padding-top: 50px;
     padding-bottom: 50px;
+    display: inline-block;
+}
+#audioDiv{
+    text-align: center;
 }
 #subtitles{
     padding-bottom: 50px;
+    background-color: gray;
+    text-align: center;
 }
