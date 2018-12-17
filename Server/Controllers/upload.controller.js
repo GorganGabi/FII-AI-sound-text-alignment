@@ -73,18 +73,14 @@ function get_sound_alignment_result(res) {
             '-out', path.join(path.join(process.cwd(), '/uploads/response.txt')) //argv [5] si argv[6]
         ]);
     let response = "";
-
-    pythonProcess.stdout.on("data", (data) => {
-        console.log(data.toString())
-        response += data
-    });
-    pythonProcess.stdout.on("error", (err) => {
-        res.json(err)
-    });
-
     pythonProcess.stdout.on("end", () => {
         console.log('[SERVER] Am primit de la modulul de python urmatorul raspuns:');
         console.log(response);
-        res.json({response: response})
+        fs.readFile(path.join(path.join(process.cwd(), '/uploads/response.txt')), function (err, data) {
+            if (err) {
+                console.log(err)
+            }
+            res.json({syncData: JSON.parse(data.toString())})
+        });
     });
 }
