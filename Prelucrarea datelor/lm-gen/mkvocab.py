@@ -8,9 +8,10 @@ def passesPruning (wordData):
     if (len(wordData[wordIndex]) < 3):
         return False
 
-    if (wordData[countIndex] < 3):
-        return False
     '''
+
+    if (wordData[countIndex] < 2):
+        return False
 
     return True
 

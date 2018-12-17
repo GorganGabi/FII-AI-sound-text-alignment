@@ -1,0 +1,3 @@
+This folder contains training data for the romanian acoustic model. The wav folder should be populated with the audio files necessary, which can be found at the following link:
+https://drive.google.com/open?id=1kAQdlxPnLxV5muSlLZVya-hQObuhwEOW
+The folders SGS and TIM have been disregarded in the input files found in etc, due to inconsistencies found between the audio files and the transcript files.
