@@ -1,5 +1,5 @@
 #########################
-Last update: 11.12.2018
+Last update: 18.12.2018
 Gorgan Daniel Mihai(Team Lider):
 - coordonare
 - configurarea serverului (dependente, config, validare)
