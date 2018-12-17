@@ -127,6 +127,10 @@ form input {
 #audiofile{
     padding-top: 50px;
     padding-bottom: 50px;
+    display: inline-block;
+}
+#audioDiv{
+    text-align: center;
 }
 #subtitles{
     padding-bottom: 50px;

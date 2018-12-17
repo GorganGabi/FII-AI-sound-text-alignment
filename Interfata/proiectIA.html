@@ -23,9 +23,6 @@
       <input type='submit' name='trimite' value='Send'>
     </form>
   </div>
-  <br>
-  <br>
-  <br>
   <div class="demo">
   <script src="https://unpkg.com/wavesurfer.js"></script>
 <div id="waveform" ></div>
@@ -36,20 +33,32 @@
     waveColor: 'green',
     progressColor: 'white'
 });
-  wavesurfer.on('ready', function () {
+
+  wavesurfer.on('pause', function () {
+    wavesurfer.pause();
+	wavesurfer.params.container.style.opacity=0.9;
+});
+  wavesurfer.on('play', function () {
     wavesurfer.play();
 });
 
   wavesurfer.load('10bears.mp3');
 </script>
+
+</div>
 </div>	
 <div id="textFormDiv">
+
 </div>
-   <audio id="audiofile" src="10bears.mp3" controls autostart></audio><br>
+<div id="audioDiv">
+   <audio controls=true id="audiofile" src="10bears.mp3" onplay="wavesurfer.playPause()">
+  </audio><br>
+</div>
         <div id="subtitles"></div>
         <script>
   ( function(win, doc) {
       var audioPlayer = doc.getElementById("audiofile");
+	  audioPlayer.muted=true;
       var subtitles = doc.getElementById("subtitles");
 	  var syncData = data;
 
@@ -72,12 +81,12 @@
                   if(element.matched=="0")
 				  {	
 					subtitles.children[index].style.background = 'yellow';
-					subtitles.children[index-1].style.background = 'gray';
+					subtitles.children[index-1].style.background = 'grey';
 				  }
 				  else if (element.matched=="1") 
 				  {
 					subtitles.children[index].style.background = 'red';
-					subtitles.children[index-1].style.background = 'gray';
+					subtitles.children[index-1].style.background = 'grey';
 				  }
 				  
           }
