@@ -4,6 +4,7 @@ import sys
 print("Running Python {}".format(sys.version_info))
 
 from pocketsphinx import AudioFile, get_model_path, get_data_path
+from transform_audio_configs import configuration
 
 
 help = """Arguments for console usage:
@@ -26,17 +27,17 @@ def get_phonemes_from_file(file_path, detailed=False, model='en-us'):
     data_path = get_data_path()
 
     config = {
-        'verbose': False,
         'audio_file': file_path,
-        'buffer_size': 2048,
-        'no_search': False,
-        'full_utt': False,
         'hmm': os.path.join(model_path, model),
         'allphone': os.path.join(model_path, 'phone.lm.dmp'),
-        'beam': 1e-20,
-        'pbeam': 1e-20,
-        'lw': 2.0
     }
+
+    for param in configuration['default_phonemes']:
+        config[param] = configuration['default_phonemes'][param]
+
+    if model in configuration:
+        for param in configuration[model]:
+            config[param] = configuration[model][param]
 
     audio = AudioFile(**config)
 
@@ -73,15 +74,18 @@ def get_words_from_file(file_path, detailed=False, model='en-us'):
     data_path = get_data_path()
 
     config = {
-        'verbose': False,
         'audio_file': file_path,
-        'buffer_size': 2048,
-        'no_search': False,
-        'full_utt': False,
         'hmm': os.path.join(model_path, model),
-        'lm': os.path.join(model_path, '{}.lm.bin'.format(model)),
-        'dict': os.path.join(model_path, 'cmudict-en-us.dict')
+        'lm': os.path.join(model_path, '{m}\\{m}.lm.bin'.format(m=model)),
+        'dict': os.path.join(model_path, '{m}\\{m}.dict'.format(m=model))
     }
+
+    for param in configuration['default_words']:
+        config[param] = configuration['default_words'][param]
+
+    if model in configuration:
+        for param in configuration[model]:
+            config[param] = configuration[model][param]
 
     audio = AudioFile(**config)
 
