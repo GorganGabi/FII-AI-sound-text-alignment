@@ -13,4 +13,4 @@ wavesurfer.on('play', function () {
   wavesurfer.play()
 })
 
-wavesurfer.load('10bears.mp3')
+wavesurfer.load('file4.mp3')
