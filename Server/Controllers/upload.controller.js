@@ -47,6 +47,9 @@ module.exports.uploading = (req, res) => {
             get_sound_alignment_result(error, res)
         }
         else {
+            //fisierul salvat o sa fie mySound.extensie (vezi filename din multer.diskStorage)
+            // dupa care trebuie trimis modulului de prelucrare date
+            // si sa fie convertit in test.raw, and that's all, ar trebui sa mearga dupa
             console.log('[SERVER] Am primit in urma upload-ului fisierul:');
             console.log(req.file);
             console.log('[SERVER] Am primit in textul:');
