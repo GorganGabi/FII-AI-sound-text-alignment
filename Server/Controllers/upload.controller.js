@@ -78,8 +78,8 @@ function get_sound_alignment_result(res, req) {
             console.log('[SERVER] Trimitem ca parametru fisierul primit catre modulul:' + path.join(root, 'Prelucrarea datelor/stripAudio.py'));
             const pythonProcess = spawn("py",
                 [path.join(path.join(root, 'Prelucrarea datelor/stripAudio.py')),
-                    '/uploads/mySound.mp3',
-                    '/uploads/test.raw'
+                    path.join(process.cwd(), '/uploads/mySound.mp3'),
+                    path.join(process.cwd(), '/uploads/test.raw')
                 ]);
             let response = "";
             pythonProcess.stdout.on("data", (data) => {

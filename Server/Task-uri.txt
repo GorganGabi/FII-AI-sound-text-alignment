@@ -8,17 +8,20 @@ Gorgan Daniel Mihai(Team Lider):
 - crearea documentatie (apidoc) 
 - updatare documentatie ReadMe *
 - integrare module
+- refactor front-end
 
 Marian Vlad Stefan:
 - crearea controllerului care se ocupa upload-ul pozelor si a textului primit ca input
 - rezolvare de bug-uri
 - updatare documentatie ReadMe *
 - integrare module
+- refactor front-end
 
 Andrei Maxim:
 - crearea controllerului care apeleaza module de python cu informatiile primtie de la celalalt controller
 - rezolvare de bug-uri
 - updatare documentatie ReadMe *
 - integrare module
+- refactor frontend
 * -> fiecare pentru propriul cod
 #########################
