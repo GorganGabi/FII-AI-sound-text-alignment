@@ -23,6 +23,9 @@
       <input type='submit' name='trimite' value='Send'>
     </form>
   </div>
+  <br>
+  <br>
+  <br>
   <div class="demo">
   <script src="https://unpkg.com/wavesurfer.js"></script>
 <div id="waveform" ></div>
@@ -51,7 +54,6 @@
 </div>
 </div>	
 <div id="textFormDiv">
-<embed src="test.txt" id="textform">
 </div>
    <audio id="audiofile" src="10bears.mp3" controls autostart></audio><br>
         <div id="subtitles"></div>
@@ -80,12 +82,12 @@
                   if(element.matched=="0")
 				  {	
 					subtitles.children[index].style.background = 'yellow';
-					subtitles.children[index-1].style.background = 'black';
+					subtitles.children[index-1].style.background = 'gray';
 				  }
 				  else if (element.matched=="1") 
 				  {
 					subtitles.children[index].style.background = 'red';
-					subtitles.children[index-1].style.background = 'black';
+					subtitles.children[index-1].style.background = 'gray';
 				  }
 				  
           }
