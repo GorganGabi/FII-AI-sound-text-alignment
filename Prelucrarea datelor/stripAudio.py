@@ -32,5 +32,5 @@ def convertFileToRaw(inFilePath, outFilePath):
         print(e)
         return
 
-
-convertFileToRaw(sys.argv[1], sys.argv[2])
+if __name__ == '__main__':
+    convertFileToRaw(sys.argv[1], sys.argv[2])
