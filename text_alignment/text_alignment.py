@@ -14,14 +14,14 @@ def create_parser():
     parser.add_argument('-rec', '--recording', help='path to the audio file')
     parser.add_argument('-orig', '--original', help='path to the second file to be aligned')
     parser.add_argument('-out', '--output', help='path to the final alignment (result alignment file)')
-
+    parser.add_argument('-m', '--model', help='the model used by the voice recognition model', default='en-us')
 
     return parser
 
 
 def get_args(parser):
     args = parser.parse_args()
-    return [args.recording, args.original, args.output]
+    return [args.recording, args.original, args.output, args.model]
 
 
 def align(text1, text2, gap_penalty, mismatch_penalty):
@@ -148,7 +148,7 @@ def get_lists(arguments):
     word_list1 = [elem["word"] for elem in file1_data]
     '''
 
-    file1_data = get_words_from_file(arguments[0], detailed=True)
+    file1_data = get_words_from_file(arguments[0], detailed=True, model=arguments[3])
     file1_data = [remove_word_number(elem) for elem in file1_data if dict_is_ok(elem)]
     word_list1 = [elem["word"] for elem in file1_data]
 
