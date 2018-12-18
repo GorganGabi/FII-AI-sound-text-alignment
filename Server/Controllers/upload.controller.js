@@ -113,9 +113,15 @@ function get_sound_alignment_result(res, req) {
                         console.log(err)
                         return cb(err);
                     }
-                    data = JSON.parse(data);
-                    console.log(data);
-                    cb(null, data);
+                    fs.writeFile(path.join(root, 'Interfata/vers.json'),  data, function (err) {
+                        console.log(data);
+                        if (err) {
+                            return console.log(err);
+                        }
+                        data = JSON.parse(data);
+                        cb(null, data);
+                    });
+
                 });
             });
         }
