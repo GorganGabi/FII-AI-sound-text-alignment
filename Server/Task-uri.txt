@@ -6,22 +6,22 @@ Gorgan Daniel Mihai(Team Lider):
 - teste unitare
 - randarea fisierelor folosind o ruta relativa
 - crearea documentatie (apidoc) 
-- updatare documentatie ReadMe *
-- integrare module
-- refactor front-end
+- updatare documentatie ReadMe
+- integrare cu toate modulele
+- BONUS: refactor cod front-end
 
 Marian Vlad Stefan:
 - crearea controllerului care se ocupa upload-ul pozelor si a textului primit ca input
 - rezolvare de bug-uri
-- updatare documentatie ReadMe *
-- integrare module
-- refactor front-end
+- updatare documentatie ReadMe
+- integrare cu toate modulele
+- BONUS: refactor cod front-end
 
 Andrei Maxim:
 - crearea controllerului care apeleaza module de python cu informatiile primtie de la celalalt controller
 - rezolvare de bug-uri
-- updatare documentatie ReadMe *
-- integrare module
-- refactor frontend
+- updatare documentatie ReadMe
+- integrare cu toate modulele
+- BONUS: refactor cod frontend
 * -> fiecare pentru propriul cod
 #########################

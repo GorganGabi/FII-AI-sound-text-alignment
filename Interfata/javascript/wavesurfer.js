@@ -3,14 +3,14 @@ var wavesurfer = WaveSurfer.create({
   scrollParent: true,
   waveColor: 'green',
   progressColor: 'white'
-})
+});
 
 wavesurfer.on('pause', function () {
-  wavesurfer.pause()
+  wavesurfer.pause();
   wavesurfer.params.container.style.opacity = 0.9
-})
+});
 wavesurfer.on('play', function () {
   wavesurfer.play()
-})
+});
 
-wavesurfer.load('mySound-1.mp3')
+wavesurfer.load('mySound.mp3');

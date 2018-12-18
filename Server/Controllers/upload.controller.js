@@ -99,7 +99,7 @@ function get_sound_alignment_result(res, req) {
                     '-rec', path.join(path.join(process.cwd(), '/uploads/test.raw')), //argv [1] si argv[2]
                     '-orig', path.join(path.join(process.cwd(), '/uploads/text.txt')), //argv [3] si argv[4]
                     '-out', path.join(path.join(process.cwd(), '/uploads/response.txt')), //argv [5] si argv[6]
-                    // '-model=ro'
+                    '-m=ro'
                 ]);
             let response = "";
             pythonProcess.stdout.on("data", (data) => {
