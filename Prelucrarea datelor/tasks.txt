@@ -80,6 +80,7 @@ seminarul saptamanii 12:
 			+ automatizarea procurarii si prelucrarii materiei prime
 			+ modelarea finala a limbajului pe baza corpului lingvistic generat
 			+ conversia modelului in format binar pentru spor de performanta
+			+ prelucrare dictionar (cuvant => foneme)
 
 	Condrea Ana Maria
 			+ recunoasterea vocii: sedinta de brainstorming pentru idei de surse de date de antrenament (recunoasterea vocii)
