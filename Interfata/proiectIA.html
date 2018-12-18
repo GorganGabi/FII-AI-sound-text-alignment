@@ -17,7 +17,7 @@
 <div class="main">
     <h1>Fun way to align your text</h1>
     <p>Insert your text&audio file down below</p>
-    <form action="api/upload" method="POST" onSubmit="upload()" enctype="multipart/form-data">
+    <form action="api/upload" method="POST" onSubmit="upload()" target="_blank" enctype="multipart/form-data">
         <textarea rows="2" cols="50" class="mainTexarea" name="text" placeholder="Textul tau aici"></textarea>
         <label for="browse"></label>
         <br>
@@ -27,7 +27,7 @@
 </div>
 <div class="demo">
     <script src="https://unpkg.com/wavesurfer.js"></script>
-    <div id="waveform"></div>
+    <div id="waveform" style="display:block;"></div>
     <script type="text/javascript" src="./javascript/wavesurfer.js"></script>
 </div>
 </div>
@@ -35,7 +35,7 @@
 
 </div>
 <div id="audioDiv">
-    <audio controls=true id="audiofile" src="10bears.mp3" onplay="wavesurfer.playPause()">
+    <audio controls=true id="audiofile" src="mySound-1.mp3" onplay="wavesurfer.playPause()">
     </audio>
     <br>
 </div>
