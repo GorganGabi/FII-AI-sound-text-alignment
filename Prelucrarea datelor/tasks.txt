@@ -1,0 +1,95 @@
+	task-uri:
+
+* prelucrare audio:
+	+ research formate audio wav, raw
+	+ research librarii prelucrare audio
+	+ implementare functionalitate: conversie audio la wav, 16khz, 16-bit, 2 bytes/s
+
+* prelucrare dictionare:
+	+ implementarea citirii unei mapari (cheie = cuvant) => (valoare = foneme):
+		- citirea in reverse
+
+* date de antrenament:
+	+ sedinta de brainstorming pentru surse de date de antrenament
+
+* creare de model de limbaj:
+	+ research pe utilitate, avantaje & dezavantaje
+	+ sedinta de brainstorming pentru surse de date
+	+ stripuirea de metadate ale corpului de scrieri
+		- issue intalnit: codificarea diacriticelor
+	+ crearea unui vocabular pe baza corpusului
+	+ automatizarea procurarii si prelucrarii materiei prime
+	+ modelarea finala a limbajului pe baza corpului lingvistic generat
+	+ conversia modelului in format binar pentru spor de performanta
+
+
+
+componenta echipei:
+	Vatamanu Vlad Constantin - coordonator
+	Ungureanu Ioana
+	Condrea Ana Maria
+
+
+
+seminarul saptamanii 10:
+	Vatamanu Vlad Constantin:
+		+ research formate audio wav, raw
+		+ research librarii prelucrare audio
+	Ungureanu Ioana
+		+ research librarii prelucrare audio
+		+ implementare functionalitate: conversie audio la wav, 16khz, 16-bit, 2 bytes/s
+		+ implementarea citirii unei mapari (cheie = cuvant) => (valoare = foneme):
+	Condrea Ana Maria
+		+ research librarii prelucrare audio
+		+ implementarea citirii unei mapari (cheie = cuvant) => (valoare = foneme):
+
+
+seminarul saptamanii 11:
+	Vatamanu Vlad Constantin:
+		+ investigatie bug la conversie audio
+		+ discutie specificatii modul si proiect la nivel de grupa
+	Ungureanu Ioana
+		+ investigatie bug la conversie audio
+		+ discutie specificatii modul si proiect la nivel de grupa
+	Condrea Ana Maria
+		+ investigatie bug la conversie audio
+		+ discutie specificatii modul si proiect la nivel de grupa
+
+
+seminarul saptamanii 12:
+	Vatamanu Vlad Constantin
+			+ recunoasterea vocii: sedinta de brainstorming pentru idei de surse de date de antrenament (recunoasterea vocii)
+			+ research pe utilitate, avantaje & dezavantaje
+			+ sedinta de brainstorming pentru surse de date
+			+ stripuirea de metadate ale corpului de scrieri
+				- issue intalnit: codificarea diacriticelor
+					- solutii: post-processing automat, bug fixing la script de stripuire
+			+ crearea unui vocabular pe baza corpusului
+			+ automatizarea procurarii si prelucrarii materiei prime
+			+ modelarea finala a limbajului pe baza corpului lingvistic generat
+			+ conversia modelului in format binar pentru spor de performanta
+
+	Ungureanu Ioana
+			+ recunoasterea vocii: sedinta de brainstorming pentru idei de surse de date de antrenament (recunoasterea vocii)
+			+ research pe utilitate, avantaje & dezavantaje
+			+ sedinta de brainstorming pentru surse de date
+			+ stripuirea de metadate ale corpului de scrieri
+				- issue intalnit: codificarea diacriticelor
+					- solutii: post-processing automat, bug fixing la script de stripuire
+			+ crearea unui vocabular pe baza corpusului
+			+ automatizarea procurarii si prelucrarii materiei prime
+			+ modelarea finala a limbajului pe baza corpului lingvistic generat
+			+ conversia modelului in format binar pentru spor de performanta
+			+ prelucrare dictionar (cuvant => foneme)
+
+	Condrea Ana Maria
+			+ recunoasterea vocii: sedinta de brainstorming pentru idei de surse de date de antrenament (recunoasterea vocii)
+			+ research pe utilitate, avantaje & dezavantaje
+			+ sedinta de brainstorming pentru surse de date
+			+ stripuirea de metadate ale corpului de scrieri
+				- issue intalnit: codificarea diacriticelor
+					- solutii: post-processing automat, bug fixing la script de stripuire
+			+ crearea unui vocabular pe baza corpusului
+			+ automatizarea procurarii si prelucrarii materiei prime
+			+ modelarea finala a limbajului pe baza corpului lingvistic generat
+			+ conversia modelului in format binar pentru spor de performanta
