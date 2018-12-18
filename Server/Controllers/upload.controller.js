@@ -18,7 +18,8 @@ module.exports.uploading = (req, res) => {
     const storage = multer.diskStorage({
         destination: './uploads',
         filename: function (req, file, cb) {
-            cb(null, 'mySound' + path.extname(file.originalname))
+            // cb(null, 'mySound' + path.extname(file.originalname))
+            cb(null, 'mySound.mp3')
         }
     });
 
@@ -97,7 +98,8 @@ function get_sound_alignment_result(res, req) {
                 [path.join(path.join(root, 'text_alignment/text_alignment.py')),
                     '-rec', path.join(path.join(process.cwd(), '/uploads/test.raw')), //argv [1] si argv[2]
                     '-orig', path.join(path.join(process.cwd(), '/uploads/text.txt')), //argv [3] si argv[4]
-                    '-out', path.join(path.join(process.cwd(), '/uploads/response.txt')) //argv [5] si argv[6]
+                    '-out', path.join(path.join(process.cwd(), '/uploads/response.txt')), //argv [5] si argv[6]
+                    // '-model=ro'
                 ]);
             let response = "";
             pythonProcess.stdout.on("data", (data) => {
