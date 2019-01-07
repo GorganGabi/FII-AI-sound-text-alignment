@@ -3,14 +3,17 @@ import os
 import json
 import re
 import sys
+from unidecode import unidecode
+import codecs
 
 sys.path.insert(0, '..\\audio_to_phonemes')
 
 from transform_audio import get_words_from_file
 
+
 def create_parser():
     parser = argparse.ArgumentParser(description="Parse args for text alignment script.")
-    #parser.add_argument('-rec', '--recongnized', help='path to the first file to be aligned')
+    # parser.add_argument('-rec', '--recongnized', help='path to the first file to be aligned')
     parser.add_argument('-rec', '--recording', help='path to the audio file')
     parser.add_argument('-orig', '--original', help='path to the second file to be aligned')
     parser.add_argument('-out', '--output', help='path to the final alignment (result alignment file)')
@@ -115,10 +118,21 @@ def align(text1, text2, gap_penalty, mismatch_penalty):
     res.append(yans[id:])
     return res
 
+
+def remove_diacritics(file):
+    text = []
+    with codecs.open(file, encoding='utf-8') as f:
+        lines = f.readlines()
+        for line in lines:
+            text.append(unidecode(line))
+    return "".join(text)
+
+
 def dict_is_ok(input_dict):
     if "<" in input_dict["word"]:
         return False
     return True
+
 
 def remove_word_number(input_dict):
     new_dict = input_dict
@@ -127,6 +141,7 @@ def remove_word_number(input_dict):
         new_dict["word"] = new_dict["word"][:paranthesis_pos]
 
     return new_dict
+
 
 def get_lists(arguments):
     if arguments.count(None) != 0:
@@ -158,11 +173,12 @@ def get_lists(arguments):
     for line in file2:
         line_word_list = [x for x in re.split(",|\s+|\.|;|:|\*+|\n", line) if x]
         word_list2.extend(line_word_list)
-    
+
     word_list1 = [word.lower() for word in word_list1]
     word_list2 = [word.lower() for word in word_list2]
 
     return [word_list1, word_list2, file1_data]
+
 
 def create_result_dictionary(alignment_res, word_lists, arguments):
     align_list1 = alignment_res[0]
@@ -193,6 +209,7 @@ def create_result_dictionary(alignment_res, word_lists, arguments):
     outfile = open(arguments[2], "w")
     outfile.write(json.dumps(res_dict_list))
 
+
 if __name__ == '__main__':
     parser = create_parser()
     arguments = get_args(parser)
@@ -203,6 +220,6 @@ if __name__ == '__main__':
 
     if word_lists:
         alignment_res = align(word_lists[0], word_lists[1], gap_penalty, mismatch_penalty)
-        create_result_dictionary(alignment_res, word_lists, arguments)    
-    
+        create_result_dictionary(alignment_res, word_lists, arguments)
+
 

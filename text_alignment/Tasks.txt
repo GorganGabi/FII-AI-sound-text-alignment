@@ -7,6 +7,7 @@ Gorgan Gabi (Team Lider):
 - unit tests
 - refactorizare cod
 - integrare
+- eliminare diacritice
 
 Vitel Silviu:
 - research pentru algoritm
@@ -16,6 +17,7 @@ Vitel Silviu:
 - prelucrare texte
 - refactorizare cod
 - integrare
+- eliminare diacritice
 
 Balica Ema:
 - research pentru algoritm
