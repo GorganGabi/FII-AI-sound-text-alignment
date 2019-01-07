@@ -24,7 +24,6 @@ function upload() {
             syncData.forEach(function (element, index, array) {
                     if (audioPlayer.currentTime >= element.start && audioPlayer.currentTime <= element.end)
                         if (element.matched === 0) {
-                            console.log('-----------')
                             subtitles.children[index].style.background = 'red';
                         } else {
                             subtitles.children[index].style.background = 'yellow';
@@ -34,6 +33,7 @@ function upload() {
             )
 
         })
+
     })
 }
 

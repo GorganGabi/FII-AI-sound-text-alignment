@@ -1,0 +1,22 @@
+Adam Alexandru
+Coordonarea echipei
+Arhitectura de baza a front-endului
+Designul paginii
+Responsiveness-ul arhitecturii de baza
+Comunicarea cu celelalte module si implementarea proiectului in interfata
+
+Savencu Alexandru
+Research wavesurfer
+implementarea api-ului(wavesurfer)
+Comunicarea cu celelalte module si implementarea proiectului in interfata
+
+Stefanovici Andreea
+implementarea functiilor pentru afisarea textului 
+sincronizarea textului cu audio
+Rezolvarea diferitelor bug-uri
+
+
+Corduneanu Ioana
+Pornirea playerelor concomitent 
+sincronizarea wavesurf-ului cu audio
+Rezolvarea diferitelor bug-uri

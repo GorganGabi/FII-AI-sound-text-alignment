@@ -12,18 +12,23 @@ Vitel Silviu:
 - research pentru algoritm
 - implementare algoritm
 - parser
+- create_dictionary_result
+- prelucrare texte
 - refactorizare cod
 - integrare
 
 Balica Ema:
 - research pentru algoritm
 - implementare algoritm
+- normalizare cuvinte
 
 Arteni Vasile Bogdan:
 - research pentru algoritm
 - implementare algoritm
+- create_dictionary_result
 
 Andrei Cristian:
 - research pentru algoritm
-- testare algortim
+- testare algoritm
+- get_lists
 ###########################
