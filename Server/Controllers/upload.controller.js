@@ -59,7 +59,6 @@ module.exports.uploading = (req, res) => {
   })
 }
 
-<<<<<<< HEAD
 function get_sound_alignment_result (res, req) {
   // CALL PYTHON MODULE TO GET THE RESULT
   async.waterfall([
@@ -96,45 +95,6 @@ function get_sound_alignment_result (res, req) {
       })
       pythonProcess.stdout.on('end', () => {
         console.log('[SERVER] Am primit de la modulul de python urmatorul raspuns:')
-=======
-function get_sound_alignment_result(res, req) {
-    // CALL PYTHON MODULE TO GET THE RESULT
-    async.waterfall([
-        (cb) => {
-            // SEND AUDIO FILE TO `PRELUCRAREA DATELOR` MODULE
-            console.log('[SERVER] Trimitem ca parametru fisierul primit catre modulul:' + path.join(root, 'Prelucrarea datelor/stripAudio.py'));
-            const pythonProcess = spawn("py",
-                [path.join(path.join(root, 'Prelucrarea datelor/stripAudio.py')),
-                    path.join(process.cwd(), '/uploads/mySound.mp3'),
-                    path.join(process.cwd(), '/uploads/test.raw')
-                ]);
-            let response = "";
-            pythonProcess.stdout.on("data", (data) => {
-                response += data;
-            });
-            pythonProcess.stdout.on("end", () => {
-                console.log("StripAudio finishied. Response is: ", response);
-                cb();
-            });
-        },
-        (cb) => {
-            // SEND RAW FILE + TEXT FILE TO text_alignment module
-            console.log('[SERVER] Trimitem ca parametru fisierul primit catre modulul:' + path.join(root, 'text_alignment/text_alignment.py'));
-            const pythonProcess = spawn("py",
-                [path.join(path.join(root, 'text_alignment/text_alignment.py')),
-                    '-rec', path.join(path.join(process.cwd(), '/uploads/test.raw')), //argv [1] si argv[2]
-                    '-orig', path.join(path.join(process.cwd(), '/uploads/text.txt')), //argv [3] si argv[4]
-                    '-out', path.join(path.join(process.cwd(), '/uploads/response.txt')), //argv [5] si argv[6]
-                    '-m=ro'
-                ]);
-            let response = "";
-            pythonProcess.stdout.on("data", (data) => {
-                response += data;
-            });
-            pythonProcess.stdout.on("end", () => {
-                console.log('[SERVER] Am primit de la modulul de python urmatorul raspuns:');
->>>>>>> 2d1ecc0948ef2e6f39159461cdb6cf9a0f13da23
-
         fs.readFile(path.join(path.join(process.cwd(), '/uploads/response.txt')), function (err, data) {
           if (err) {
             console.log(err)
