@@ -93,3 +93,20 @@ seminarul saptamanii 12:
 			+ automatizarea procurarii si prelucrarii materiei prime
 			+ modelarea finala a limbajului pe baza corpului lingvistic generat
 			+ conversia modelului in format binar pentru spor de performanta
+
+
+seminarul saptamanii 13:
+	Vatamanu Vlad Constantin
+			+ research pentru imbunatatire model lingvistic
+	Ungureanu Ioana
+			+ research pentru imbunatatire model lingvistic
+	Condrea Ana Maria
+			+ research pentru imbunatatire model lingvistic
+
+seminarul saptamanii 14:
+	Vatamanu Vlad Constantin
+			+ procurare date de antrenament model acustic
+	Ungureanu Ioana
+			+ procurare date de antrenament model acustic
+	Condrea Ana Maria
+			+ procurare date de antrenament model acustic
