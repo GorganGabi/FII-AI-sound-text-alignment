@@ -1,49 +1,83 @@
 #########################
 Last update: 18.12.2018
 Gorgan Daniel Mihai(Team Lider):
-- coordonare
-- configurarea serverului (dependente, config, validare)
-- teste unitare
-- randarea fisierelor folosind o ruta relativa
-- crearea documentatie (apidoc) 
-<<<<<<< HEAD
-- updatare documentatie ReadMe *
-- integrare module
-- refactor front-end
-- modificari conform noilor cerinte
-=======
-- updatare documentatie ReadMe
-- integrare cu toate modulele
-- BONUS: refactor cod front-end
->>>>>>> 2d1ecc0948ef2e6f39159461cdb6cf9a0f13da23
+- coordonare echipa
+Sapt1-2:
+	- documentare pentru proiect
+	- creare prezentare proiect
+Sapt3:
+	- crearea serverului :
+			- instalarea dependentelor din NPM:
+				*express  - pentru serverul http
+				*bodyParser - pentru a accesa body-ul unui request (pentru POST)
+				*helmet - securitate
+				*cors
+				*fisier config + env(pentru stocarea variabilelor de enviroment= development,testing,production)
+				*randare pagina principala (momentan hardcodata)
+	- updatare documentatie ReadMe - initial setup , despre cum sa pornesti serverul si cum se pot rezolv anumite erori.
+Sapt4:
+	- teste unitare
+	- randarea fisierelor folosind o ruta relativa (fara sa mai hardcodam)
+	- updatare documentatie ReadMe cu noile modificari
+Sapt5:
+	- crearea documentatie (apidoc) pentru a explica ruta si cum se trimit datele si raspunsul (prima forma) 
+	- updatare documentatie ReadMe
+	- integrare module - vorbit cu fiecare modul, si stabilit modalitatea de integrare
+	- refactor front-end - 					
+						* bug fixing (lipsa de include-uri, adaugare dataform encryption pentru a suporta transfer de fisiere)
+						* fix call catre backend
+	- modificari conform noilor cerinte - permitere de upload multiple fisiere
+Sapt6:
+	-documentatie finala
+
 
 Marian Vlad Stefan:
-- crearea controllerului care se ocupa upload-ul pozelor si a textului primit ca input
-- rezolvare de bug-uri
-<<<<<<< HEAD
-- updatare documentatie ReadMe *
-- integrare module
-- refactor front-end
-- modificari conform noilor cerinte
-=======
-- updatare documentatie ReadMe
-- integrare cu toate modulele
-- BONUS: refactor cod front-end
->>>>>>> 2d1ecc0948ef2e6f39159461cdb6cf9a0f13da23
+Sapt1-2:
+	- documentare pentru proiect
+Sapt3:
+	- crearea de : ruta + controller care se ocupa upload-ul melodiilor
+				*multer - libraria folosita in acest scop : 
+					- create locatiei de upload
+					- transmiterea fisierelor in locatie
+	- preluarea textului din body-ul requestului si scrierea (respectiv suprascrierea acestuia pentru a evita umplerea de memorie
+	  a fisierului) textului intr-un fisier 
+	- creare validator upload - doar melodii mp3 (momentan) 
+Sapt4:
+	- adaugare mai multe tipuri validator
+	- redenumirea fisierului audio (suprascrierea acestuia pentru a evita umplerea de memorie a fisierului)
+	- rezolvare de bug-uri (upload cu success dar fisier gol)
+	- refactor front-end - 
+						* modularizare fisiere (separare html-css-js)
+Sapt5:
+	- adaugare suport upload fisiere multiple
+	- updatare documentatie pentru upload
+	- updatare apidoc (a doua forma)
+	- integrare module - comunicarea cu celalalte module
+Sapt6:
+	-documentatie finala
 
+	
 Andrei Maxim:
-- crearea controllerului care apeleaza module de python cu informatiile primtie de la celalalt controller
-- rezolvare de bug-uri
-<<<<<<< HEAD
-- updatare documentatie ReadMe *
-- integrare module
-- refactor frontend
-- modificari conform noilor cerinte
+Sapt1-2:
+	- documentare pentru proiect
+Sapt3:
+	- crearea controllerului care apeleaza module de python cu informatiile primitie de la celalalt controller:
+		* spawn - crearea de process nou care trateaza fisierul python:
+			- construirea raspunsului primit de la modul (stdout.out)
+			- transmiterea raspunsului catre front-end
+Sapt4:
+	- rezolvare de bug-uri (raspuns gol, chiar daca modulul python a trimis)
+	- scrierea raspunsului intr-un fisier .json
+	- tratare exceptii in caz de eroare(deschidere fisier, apel modul esuat)
+	- refactor front-end - 
+						* citire fisier json
+Sapt5:
+	- integrare module - creare procese python noi pentru comunicarea cu celelalte module
+					   - comunicarea cu celalalte module
+	- modificari conform noilor cerinte - apel module trimitand caile celor 2 fisiere in loc de fisier+text
+	- transmitere raspuns direct catre front-end (pentru nu a pierde diacriticile la scrierea in fisier)
 
-=======
-- updatare documentatie ReadMe
-- integrare cu toate modulele
-- BONUS: refactor cod frontend
->>>>>>> 2d1ecc0948ef2e6f39159461cdb6cf9a0f13da23
-* -> fiecare pentru propriul cod
-#########################
+Sapt6:
+	-documentatie finala
+
+##############
