@@ -14,6 +14,7 @@ Sapt3:
 				*cors
 				*fisier config + env(pentru stocarea variabilelor de enviroment= development,testing,production)
 				*randare pagina principala (momentan hardcodata)
+	- configurare babel (pentru a fo compatibil cu versiunile mai vechi de javascript)
 	- updatare documentatie ReadMe - initial setup , despre cum sa pornesti serverul si cum se pot rezolv anumite erori.
 Sapt4:
 	- teste unitare
