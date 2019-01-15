@@ -1,22 +1,78 @@
-Adam Alexandru
-Coordonarea echipei
-Arhitectura de baza a front-endului
-Designul paginii
-Responsiveness-ul arhitecturii de baza
-Comunicarea cu celelalte module si implementarea proiectului in interfata
+Componenta Echipei
+	Adam Alexandru -coordonator
+	Savencu Alexandru
+	Stefanovici Andreea
+	Corduneanu Ioana
 
-Savencu Alexandru
-Research wavesurfer
-implementarea api-ului(wavesurfer)
-Comunicarea cu celelalte module si implementarea proiectului in interfata
+Saptamana1-2: Documentatie pentru proiect 
 
-Stefanovici Andreea
-implementarea functiilor pentru afisarea textului 
-sincronizarea textului cu audio
-Rezolvarea diferitelor bug-uri
+	Adam Alexandru Razvan: 
+		+Sesiune de brainstorming pentru realizarea unei schite de baza a aplicatiei si stabilirea task-urilor individuale
+		+Research pentru design
+		+coordonarea echipei 
+		+asigurarea unei comunicari eficiente intre module	
 
+	Savencu Alexandru Tudor: 
+		+Sesiune de brainstorming pentru realizarea unei schite de baza a aplicatiei si stabilirea task-urilor individuale
+		+Research pentru eventualele api-uri
+		+imbunatatirea comunicarii in cadrul modulului
 
-Corduneanu Ioana
-Pornirea playerelor concomitent 
-sincronizarea wavesurf-ului cu audio
-Rezolvarea diferitelor bug-uri
+	Stefanovici Andreea Diana:
+		+Sesiune de brainstorming pentru realizarea unei schite de baza a aplicatiei si stabilirea task-urilor individuale
+		+Intemeierea unui raport privind avantajele si dezavantajele diferitelor design-uri 
+
+	Corduneanu Ioana:
+		+Sesiune de brainstorming pentru realizarea unei schite de baza a aplicatiei si stabilirea task-urilor individuale
+		+Intemeierea unui raport privind avantajele si dezavantajele diferitelor design-uri 
+
+ 
+Saptamana 3: Proiectarea structurii site-ului.
+
+	Adam Alexandru Razvan: 
+		+Discutie si critici constructive referitoare la modul.
+		+Reaizarea fisierului de baza html.
+
+	Savencu Alexandru Tudor: 
+		+Discutie si critici constructive referitoare la modul.
+		+Proiectarea paginii din punct de vedere functional.
+
+	Stefanovici Andreea Diana:
+		+Discutie si critici constructive referitoare la modul.
+	Corduneanu Ioana:
+		+Discutie si critici constructive referitoare la modul.
+
+Saptamana 4: Implementarea 
+
+	Adam Alexandru Razvan: 
+		+Sesiune de brainstorming prrivitoare la integrarea diferitelor implementari in cadrul modulului
+		+Stilizarea paginii folosind css.
+
+	Savencu Alexandru Tudor: 
+		+Sesiune de brainstorming prrivitoare la integrarea diferitelor implementari in cadrul modulului
+		+Implementarea api-ului wavesurfer
+
+	Stefanovici Andreea Diana:
+		+Sesiune de brainstorming prrivitoare la integrarea diferitelor implementari in cadrul modulului
+
+	Corduneanu Ioana:
+		+Sesiune de brainstorming prrivitoare la integrarea diferitelor implementari in cadrul modulului
+
+Saptamana 5: Integrarea proiectului cu celelalte module
+
+	Adam Alexandru Razvan:
+		+Corectearea bug-urilor aparute in urma integrarii in cadrul modulului.
+		+Revizuirea erorilor cauzate de aplicatie la momentul actual.
+		+Comunicarea cu celelalte module pentru realizarea integrarii.
+
+	Savencu Alexandru Tudor: 
+		+Corectearea bug-urilor aparute in urma integrarii in cadrul modulului.
+		+Revizuirea erorilor cauzate de aplicatie la momentul actual.
+		+Testarea preliminara a functionalitatilor
+
+	Stefanovici Andreea Diana:
+		+Corectearea bug-urilor aparute in urma integrarii in cadrul modulului.
+		+Revizuirea erorilor cauzate de aplicatie la momentul actual.
+
+	Corduneanu Ioana:
+		+Corectearea bug-urilor aparute in urma integrarii in cadrul modulului.
+		+Revizuirea erorilor cauzate de aplicatie la momentul actual.
