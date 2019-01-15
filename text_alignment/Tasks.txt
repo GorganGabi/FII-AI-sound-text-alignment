@@ -1,36 +1,47 @@
 #########################
 Last update: 11.12.2018
 Gorgan Gabi (Team Lider):
-- coordonare
-- research pentru algoritm
-- implementare algoritm
-- unit tests
-- refactorizare cod
-- integrare
-- eliminare diacritice
+* coordonare (asignare task-uri, review, tracking, overview general al proiectului)
+* sapt 1: prezentare proiect
+* sapt 2: research pentru algoritm
+* sapt 3: implementare algoritm Needleman–Wunsch
+* sapt 4: - teste unitare
+	  - integrare
+* sapt 5: - refactorizare cod
+	  - integrare
+	  - eliminare diacritice
+* sapt 6: documentatie
 
 Vitel Silviu:
-- research pentru algoritm
-- implementare algoritm
-- parser
-- create_dictionary_result
-- prelucrare texte
-- refactorizare cod
-- integrare
-- eliminare diacritice
+* sapt 1: prezentare proiect
+* sapt 2: research pentru algoritm
+* sapt 3: implementare algoritm Needleman–Wunsch
+* sapt 4: - parser 			
+	  - prelucrarea rezultatului sub forma de dictionar (create_dictionary_result)
+	  - prelucrarea raspunsului (get_lists)
+* sapt 5: - refactorizare cod
+	  - integrare
+          - eliminare diacritice
+* sapt 6: - normalizare texte
 
 Balica Ema:
-- research pentru algoritm
-- implementare algoritm
-- normalizare cuvinte
+* sapt 2: research pentru algoritm
+* sapt 3: implementare algoritm Needleman–Wunsch
+* sapt 4: prelucrarea raspunsului (get_lists)
+* sapt 5: inlocuirea numerelor cu text
+* sapt 6: documentatie
 
 Arteni Vasile Bogdan:
-- research pentru algoritm
-- implementare algoritm
-- create_dictionary_result
+* sapt 2: research pentru algoritm
+* sapt 3: implementare algoritm Needleman–Wunsch
+* sapt 4: prelucrarea rezultatului sub forma de dictionar (create_dictionary_result)
+* sapt 5: fixare de bug-uri
+* sapt 6: documentatie
 
 Andrei Cristian:
-- research pentru algoritm
-- testare algoritm
-- get_lists
+* sapt 2: research pentru algoritm
+* sapt 3: testare manuala algoritm + teste automate
+* sapt 4: prelucrarea raspunsului (get_lists)
+* sapt 5: fixare de bug-uri
+* sapt 6: documentatie
 ###########################
