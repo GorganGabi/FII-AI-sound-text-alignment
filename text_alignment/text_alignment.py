@@ -5,11 +5,16 @@ import re
 import sys
 from unidecode import unidecode
 import codecs
+import treetaggerwrapper
+import strgen
+import subprocess
 
 sys.path.insert(0, '..\\audio_to_phonemes')
 
 from transform_audio import get_words_from_file
 
+TREE_TAGGER_PATH = r"C:\TreeTagger\bin\tree-tagger.exe"
+ROMANIAN_PAR_PATH = r"C:\TreeTagger\lib\romanian-utf8.par"
 
 def create_parser():
     parser = argparse.ArgumentParser(description="Parse args for text alignment script.")
@@ -18,13 +23,14 @@ def create_parser():
     parser.add_argument('-orig', '--original', help='path to the second file to be aligned')
     parser.add_argument('-out', '--output', help='path to the final alignment (result alignment file)')
     parser.add_argument('-m', '--model', help='the model used by the voice recognition model', default='en-us')
+    parser.add_argument('-l', '--lemma', help='use lemmas of words in the alignment algorithm', action='store_true')
 
     return parser
 
 
 def get_args(parser):
     args = parser.parse_args()
-    return [args.recording, args.original, args.output, args.model]
+    return [args.recording, args.original, args.output, args.model, args.lemma]
 
 
 def align(text1, text2, gap_penalty, mismatch_penalty):
@@ -210,16 +216,87 @@ def create_result_dictionary(alignment_res, word_lists, arguments):
     outfile.write(json.dumps(res_dict_list))
 
 
+def get_english_lemmas(orig_list):
+	lemma_list = []
+	tagger = treetaggerwrapper.TreeTagger(TAGLANG='en')
+
+
+	for word in orig_list:
+		tag = tagger.tag_text(word)
+		tag_object = treetaggerwrapper.make_tags(tag)
+		lemma_list.append(tag_object[0].lemma)
+
+	return lemma_list
+
+
+def get_romanian_lemmas(orig_list):
+	lemma_list = []
+
+	random_string = strgen.StringGenerator("[\d\w]{10}").render()
+	input_file_name = random_string + ".input"
+	output_file_name = random_string + ".output"
+
+	input_file_handle = open(input_file_name, 'w')
+
+	for word in orig_list:
+		input_file_handle.write(word + '\n') 
+
+	input_file_handle.close()
+	subprocess.call([TREE_TAGGER_PATH, "-lemma", ROMANIAN_PAR_PATH, input_file_name, output_file_name])
+
+	output_file_handle = open(output_file_name, 'r')
+
+	i = 0
+	for line in output_file_handle:
+		lemma = line.split()[1]
+		
+		if lemma == '<unknown>':
+			lemma_list.append(orig_list[i])
+		else:
+			lemma_list.append(lemma)
+
+		i = i + 1
+
+	output_file_handle.close()
+
+	os.remove(input_file_name)
+	os.remove(output_file_name)
+
+	return lemma_list
+
+def run_simple_align(arguments):
+	gap_penalty = -2
+	mismatch_penalty = -3
+	word_lists = get_lists(arguments)
+
+	if word_lists:
+		alignment_res = align(word_lists[0], word_lists[1], gap_penalty, mismatch_penalty)
+		create_result_dictionary(alignment_res, word_lists, arguments)
+
+
+def run_lemma_align(arguments):
+	gap_penalty = -2
+	mismatch_penalty = -3
+	word_lists = get_lists(arguments)
+
+	if arguments[3] == "en-us":
+		get_lemma_list = lambda list: get_english_lemmas(list)
+	else:
+		get_lemma_list = lambda list: get_romanian_lemmas(list)
+
+	lemma_list1 = get_lemma_list(word_lists[0])
+	lemma_list2 = get_lemma_list(word_lists[1])
+
+	if word_lists:
+		alignment_res = align(lemma_list1, lemma_list2, gap_penalty, mismatch_penalty)
+		create_result_dictionary(alignment_res, word_lists, arguments)
+
+
 if __name__ == '__main__':
     parser = create_parser()
     arguments = get_args(parser)
-    gap_penalty = -2
-    mismatch_penalty = -3
-
-    word_lists = get_lists(arguments)
-
-    if word_lists:
-        alignment_res = align(word_lists[0], word_lists[1], gap_penalty, mismatch_penalty)
-        create_result_dictionary(alignment_res, word_lists, arguments)
-
-
+    
+    if not arguments[4]:
+    	run_simple_align()
+    else:
+    	run_lemma_align(arguments)
