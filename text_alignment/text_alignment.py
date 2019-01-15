@@ -18,7 +18,7 @@ ROMANIAN_PAR_PATH = r"C:\TreeTagger\lib\romanian-utf8.par"
 
 def create_parser():
     parser = argparse.ArgumentParser(description="Parse args for text alignment script.")
-    # parser.add_argument('-rec', '--recongnized', help='path to the first file to be aligned')
+    #parser.add_argument('-rec', '--recongnized', help='path to the first file to be aligned')
     parser.add_argument('-rec', '--recording', help='path to the audio file')
     parser.add_argument('-orig', '--original', help='path to the second file to be aligned')
     parser.add_argument('-out', '--output', help='path to the final alignment (result alignment file)')
@@ -134,6 +134,20 @@ def remove_diacritics(file):
     return "".join(text)
 
 
+def remove_word_diacritics(word):
+	diacritics_dict = {'ș':'s', 'ț':'t', 'î':'i', 'ă':'a', 'â':'a'}
+
+	new_word = word
+
+	for diac in diacritics_dict:
+		try:
+			while diac in word:
+				diac_poz = new_word.index(diac)
+				new_word = new_word[0:diac_poz] + diacritics_dict[diac] + new_word[diac_poz + 1:]
+		except:
+			pass
+	return new_word
+
 def dict_is_ok(input_dict):
     if "<" in input_dict["word"]:
         return False
@@ -181,7 +195,9 @@ def get_lists(arguments):
         word_list2.extend(line_word_list)
 
     word_list1 = [word.lower() for word in word_list1]
+    word_list1 = [remove_word_diacritics(word) for word in word_list1]
     word_list2 = [word.lower() for word in word_list2]
+    word_list2 = [remove_word_diacritics(word) for word in word_list2]
 
     return [word_list1, word_list2, file1_data]
 
@@ -268,10 +284,12 @@ def run_simple_align(arguments):
 	gap_penalty = -2
 	mismatch_penalty = -3
 	word_lists = get_lists(arguments)
+	#word_lists = [["ana", "șade", "bine", "la", "soare"],["ana", "șade", "la", "umbră"]]
 
 	if word_lists:
 		alignment_res = align(word_lists[0], word_lists[1], gap_penalty, mismatch_penalty)
-		create_result_dictionary(alignment_res, word_lists, arguments)
+		print(alignment_res)
+		#create_result_dictionary(alignment_res, word_lists, arguments)
 
 
 def run_lemma_align(arguments):
@@ -297,6 +315,6 @@ if __name__ == '__main__':
     arguments = get_args(parser)
     
     if not arguments[4]:
-    	run_simple_align()
+    	run_simple_align(arguments)
     else:
     	run_lemma_align(arguments)
