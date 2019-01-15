@@ -80,11 +80,13 @@ Saptamana 5: Integrarea proiectului cu celelalte module
 		+Corectearea bug-urilor aparute in urma integrarii in cadrul modulului.
 		+Revizuirea erorilor cauzate de aplicatie la momentul actual.
 		+Comunicarea cu celelalte module pentru realizarea integrarii.
+		+Realizarea Documentatiei Finale
 
 	Savencu Alexandru Tudor: 
 		+Corectearea bug-urilor aparute in urma integrarii in cadrul modulului.
 		+Revizuirea erorilor cauzate de aplicatie la momentul actual.
 		+Testarea preliminara a functionalitatilor
+		+Realizarea Documentatiei Finale
 
 	Stefanovici Andreea Diana:
 		+Corectearea bug-urilor aparute in urma integrarii in cadrul modulului.
