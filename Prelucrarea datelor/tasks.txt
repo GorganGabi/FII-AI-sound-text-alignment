@@ -1,95 +1,115 @@
-Componenta Echipei
-	Adam Alexandru -coordonator
-	Savencu Alexandru
-	Stefanovici Andreea
-	Corduneanu Ioana
+	task-uri:
 
-Saptamana1-2: Documentatie pentru proiect 
+* prelucrare audio:
+	+ research formate audio wav, raw
+	+ research librarii prelucrare audio
+	+ implementare functionalitate: conversie audio la wav, 16khz, 16-bit, 2 bytes/s
 
-	Adam Alexandru Razvan: 
-		+coordonarea echipei 
-		+Sesiune de brainstorming pentru realizarea unei schite de baza a 
-		aplicatiei si stabilirea task-urilor individuale
-		+Research pentru design
-		+asigurarea unei comunicari eficiente intre module	
+* prelucrare dictionare:
+	+ implementarea citirii unei mapari (cheie = cuvant) => (valoare = foneme):
+		- citirea in reverse
 
-	Savencu Alexandru Tudor: 
-		+Sesiune de brainstorming pentru realizarea unei schite de baza a 
-		aplicatiei si stabilirea task-urilor individuale
-		+Research pentru eventualele api-uri
-		+imbunatatirea comunicarii in cadrul modulului
+* date de antrenament:
+	+ sedinta de brainstorming pentru surse de date de antrenament
 
-	Stefanovici Andreea Diana:
-		+Sesiune de brainstorming pentru realizarea unei schite de baza a 
-		aplicatiei si stabilirea task-urilor individuale
-		+Intemeierea unui raport privind avantajele si dezavantajele diferitelor design-uri 
+* creare de model de limbaj:
+	+ research pe utilitate, avantaje & dezavantaje
+	+ sedinta de brainstorming pentru surse de date
+	+ stripuirea de metadate ale corpului de scrieri
+		- issue intalnit: codificarea diacriticelor
+	+ crearea unui vocabular pe baza corpusului
+	+ automatizarea procurarii si prelucrarii materiei prime
+	+ modelarea finala a limbajului pe baza corpului lingvistic generat
+	+ conversia modelului in format binar pentru spor de performanta
 
-	Corduneanu Ioana:
-		+Sesiune de brainstorming pentru realizarea unei schite de baza a 
-		aplicatiei si stabilirea task-urilor individuale
-		+Intemeierea unui raport privind avantajele si dezavantajele diferitelor design-uri 
 
- 
-Saptamana 3: Proiectarea structurii site-ului.
 
-	Adam Alexandru Razvan: 
-		+Discutie si critici constructive referitoare la modul.
-		+Reaizarea fisierului de baza html.
+componenta echipei:
+	Vatamanu Vlad Constantin - coordonator
+	Ungureanu Ioana
+	Condrea Ana Maria
 
-	Savencu Alexandru Tudor: 
-		+Discutie si critici constructive referitoare la modul.
-		+Proiectarea paginii din punct de vedere functional.
 
-	Stefanovici Andreea Diana:
-		+Discutie si critici constructive referitoare la modul.
 
-	Corduneanu Ioana:
-		+Discutie si critici constructive referitoare la modul.
+seminarul saptamanii 10:
+	Vatamanu Vlad Constantin:
+		+ research formate audio wav, raw
+		+ research librarii prelucrare audio
+	Ungureanu Ioana
+		+ research librarii prelucrare audio
+		+ implementare functionalitate: conversie audio la wav, 16khz, 16-bit, 2 bytes/s
+		+ implementarea citirii unei mapari (cheie = cuvant) => (valoare = foneme):
+	Condrea Ana Maria
+		+ research librarii prelucrare audio
+		+ implementarea citirii unei mapari (cheie = cuvant) => (valoare = foneme):
 
-Saptamana 4: Implementarea 
 
-	Adam Alexandru Razvan: 
-		+Sesiune de brainstorming prrivitoare la integrarea 
-		diferitelor implementari in cadrul modulului
-		+Stilizarea paginii folosind css.
+seminarul saptamanii 11:
+	Vatamanu Vlad Constantin:
+		+ investigatie bug la conversie audio
+		+ discutie specificatii modul si proiect la nivel de grupa
+	Ungureanu Ioana
+		+ investigatie bug la conversie audio
+		+ discutie specificatii modul si proiect la nivel de grupa
+	Condrea Ana Maria
+		+ investigatie bug la conversie audio
+		+ discutie specificatii modul si proiect la nivel de grupa
 
-	Savencu Alexandru Tudor: 
-		+Sesiune de brainstorming prrivitoare la integrarea 
-		diferitelor implementari in cadrul modulului
-		+Implementarea api-ului wavesurfer
 
-	Stefanovici Andreea Diana:
-		+Sesiune de brainstorming prrivitoare la integrarea
-		diferitelor implementari in cadrul modulului
-		+implementarea subtitrarii in cadrul api-ului wavesurfer
-		+Sincronizarea textului cu fisierul audio astfel incat 
-		sa se redea in paralel
-		+Rezolvarea bug-urilor aparute in cadrul implementarii 
-		functiilor pentru afisarea textului
+seminarul saptamanii 12:
+	Vatamanu Vlad Constantin
+			+ recunoasterea vocii: sedinta de brainstorming pentru idei de surse de date de antrenament (recunoasterea 				vocii)
+			+ research pe utilitate, avantaje & dezavantaje
+			+ sedinta de brainstorming pentru surse de date
+			+ stripuirea de metadate ale corpului de scrieri
+				- issue intalnit: codificarea diacriticelor
+					- solutii: post-processing automat, bug fixing la script de stripuire
+			+ crearea unui vocabular pe baza corpusului
+			+ automatizarea procurarii si prelucrarii materiei prime
+			+ modelarea finala a limbajului pe baza corpului lingvistic generat
+			+ conversia modelului in format binar pentru spor de performanta
 
-	Corduneanu Ioana:
-		+Sesiune de brainstorming prrivitoare la integrarea 
-		diferitelor implementari in cadrul modulului
-		+Sincronizarea Wavesurfer cu audio
-		+Rezolvarea erorilor in cadrul implementarii sincronizarii
-		api-ului wavesurfer cu audio 
+	Ungureanu Ioana
+			+ recunoasterea vocii: sedinta de brainstorming pentru idei de surse de date de antrenament (recunoasterea 				vocii)
+			+ research pe utilitate, avantaje & dezavantaje
+			+ sedinta de brainstorming pentru surse de date
+			+ stripuirea de metadate ale corpului de scrieri
+				- issue intalnit: codificarea diacriticelor
+					- solutii: post-processing automat, bug fixing la script de stripuire
+			+ crearea unui vocabular pe baza corpusului
+			+ automatizarea procurarii si prelucrarii materiei prime
+			+ modelarea finala a limbajului pe baza corpului lingvistic generat
+			+ conversia modelului in format binar pentru spor de performanta
+			+ prelucrare dictionar (cuvant => foneme)
 
-Saptamana 5: Integrarea proiectului cu celelalte module
+	Condrea Ana Maria
+			+ recunoasterea vocii: sedinta de brainstorming pentru idei de surse de date de antrenament (recunoasterea 				vocii)
+			+ research pe utilitate, avantaje & dezavantaje
+			+ sedinta de brainstorming pentru surse de date
+			+ stripuirea de metadate ale corpului de scrieri
+				- issue intalnit: codificarea diacriticelor
+					- solutii: post-processing automat, bug fixing la script de stripuire
+			+ crearea unui vocabular pe baza corpusului
+			+ automatizarea procurarii si prelucrarii materiei prime
+			+ modelarea finala a limbajului pe baza corpului lingvistic generat
+			+ conversia modelului in format binar pentru spor de performanta
 
-	Adam Alexandru Razvan:
-		+Corectearea bug-urilor aparute in urma integrarii in cadrul modulului.
-		+Revizuirea erorilor cauzate de aplicatie la momentul actual.
-		+Comunicarea cu celelalte module pentru realizarea integrarii.
 
-	Savencu Alexandru Tudor: 
-		+Corectearea bug-urilor aparute in urma integrarii in cadrul modulului.
-		+Revizuirea erorilor cauzate de aplicatie la momentul actual.
-		+Testarea preliminara a functionalitatilor
+seminarul saptamanii 13:
+	Vatamanu Vlad Constantin
+			+ research pentru imbunatatire model lingvistic
+	Ungureanu Ioana
+			+ research pentru imbunatatire model lingvistic
+	Condrea Ana Maria
+			+ research pentru imbunatatire model lingvistic
 
-	Stefanovici Andreea Diana:
-		+Corectearea bug-urilor aparute in urma integrarii in cadrul modulului.
-		+Revizuirea erorilor cauzate de aplicatie la momentul actual.
-
-	Corduneanu Ioana:
-		+Corectearea bug-urilor aparute in urma integrarii in cadrul modulului.
-		+Revizuirea erorilor cauzate de aplicatie la momentul actual.
+seminarul saptamanii 14:
+	Vatamanu Vlad Constantin
+			+ procurare date de antrenament model acustic
+			+ redactare documentatia modulului de prelucrare a datelor
+	Ungureanu Ioana
+			+ procurare date de antrenament model acustic
+			+ redactare documentatia modulului de prelucrare a datelor
+	Condrea Ana Maria
+			+ procurare date de antrenament model acustic
+			+ redactare documentatia modulului de prelucrare a datelor
