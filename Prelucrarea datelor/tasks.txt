@@ -106,7 +106,10 @@ seminarul saptamanii 13:
 seminarul saptamanii 14:
 	Vatamanu Vlad Constantin
 			+ procurare date de antrenament model acustic
+			+ redactare documentatia modulului de prelucrare a datelor
 	Ungureanu Ioana
 			+ procurare date de antrenament model acustic
+			+ redactare documentatia modulului de prelucrare a datelor
 	Condrea Ana Maria
 			+ procurare date de antrenament model acustic
+			+ redactare documentatia modulului de prelucrare a datelor
