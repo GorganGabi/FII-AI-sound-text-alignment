@@ -10,7 +10,8 @@ Gorgan Gabi (Team Lider):
 * sapt 5: - refactorizare cod
 	  - integrare
 	  - eliminare diacritice
-* sapt 6: documentatie
+* sapt 6: - documentatie
+	  - lematizare romana
 
 Vitel Silviu:
 * sapt 1: prezentare proiect
@@ -23,20 +24,23 @@ Vitel Silviu:
 	  - integrare
           - eliminare diacritice
 * sapt 6: - normalizare texte
+          - lematizare romana
 
 Balica Ema:
 * sapt 2: research pentru algoritm
 * sapt 3: implementare algoritm Needleman–Wunsch
 * sapt 4: prelucrarea raspunsului (get_lists)
 * sapt 5: inlocuirea numerelor cu text
-* sapt 6: documentatie
+* sapt 6: - documentatie
+          - lematizare engleza
 
 Arteni Vasile Bogdan:
 * sapt 2: research pentru algoritm
 * sapt 3: implementare algoritm Needleman–Wunsch
 * sapt 4: prelucrarea rezultatului sub forma de dictionar (create_dictionary_result)
 * sapt 5: fixare de bug-uri
-* sapt 6: documentatie
+* sapt 6: - documentatie
+	  - lematizare engleza
 
 Andrei Cristian:
 * sapt 2: research pentru algoritm
