@@ -7,22 +7,26 @@ Componenta Echipei
 Saptamana1-2: Documentatie pentru proiect 
 
 	Adam Alexandru Razvan: 
-		+Sesiune de brainstorming pentru realizarea unei schite de baza a aplicatiei si stabilirea task-urilor individuale
-		+Research pentru design
 		+coordonarea echipei 
+		+Sesiune de brainstorming pentru realizarea unei schite de baza a 
+		aplicatiei si stabilirea task-urilor individuale
+		+Research pentru design
 		+asigurarea unei comunicari eficiente intre module	
 
 	Savencu Alexandru Tudor: 
-		+Sesiune de brainstorming pentru realizarea unei schite de baza a aplicatiei si stabilirea task-urilor individuale
+		+Sesiune de brainstorming pentru realizarea unei schite de baza a 
+		aplicatiei si stabilirea task-urilor individuale
 		+Research pentru eventualele api-uri
 		+imbunatatirea comunicarii in cadrul modulului
 
 	Stefanovici Andreea Diana:
-		+Sesiune de brainstorming pentru realizarea unei schite de baza a aplicatiei si stabilirea task-urilor individuale
+		+Sesiune de brainstorming pentru realizarea unei schite de baza a 
+		aplicatiei si stabilirea task-urilor individuale
 		+Intemeierea unui raport privind avantajele si dezavantajele diferitelor design-uri 
 
 	Corduneanu Ioana:
-		+Sesiune de brainstorming pentru realizarea unei schite de baza a aplicatiei si stabilirea task-urilor individuale
+		+Sesiune de brainstorming pentru realizarea unei schite de baza a 
+		aplicatiei si stabilirea task-urilor individuale
 		+Intemeierea unui raport privind avantajele si dezavantajele diferitelor design-uri 
 
  
@@ -38,24 +42,37 @@ Saptamana 3: Proiectarea structurii site-ului.
 
 	Stefanovici Andreea Diana:
 		+Discutie si critici constructive referitoare la modul.
+
 	Corduneanu Ioana:
 		+Discutie si critici constructive referitoare la modul.
 
 Saptamana 4: Implementarea 
 
 	Adam Alexandru Razvan: 
-		+Sesiune de brainstorming prrivitoare la integrarea diferitelor implementari in cadrul modulului
+		+Sesiune de brainstorming prrivitoare la integrarea 
+		diferitelor implementari in cadrul modulului
 		+Stilizarea paginii folosind css.
 
 	Savencu Alexandru Tudor: 
-		+Sesiune de brainstorming prrivitoare la integrarea diferitelor implementari in cadrul modulului
+		+Sesiune de brainstorming prrivitoare la integrarea 
+		diferitelor implementari in cadrul modulului
 		+Implementarea api-ului wavesurfer
 
 	Stefanovici Andreea Diana:
-		+Sesiune de brainstorming prrivitoare la integrarea diferitelor implementari in cadrul modulului
+		+Sesiune de brainstorming prrivitoare la integrarea
+		diferitelor implementari in cadrul modulului
+		+implementarea subtitrarii in cadrul api-ului wavesurfer
+		+Sincronizarea textului cu fisierul audio astfel incat 
+		sa se redea in paralel
+		+Rezolvarea bug-urilor aparute in cadrul implementarii 
+		functiilor pentru afisarea textului
 
 	Corduneanu Ioana:
-		+Sesiune de brainstorming prrivitoare la integrarea diferitelor implementari in cadrul modulului
+		+Sesiune de brainstorming prrivitoare la integrarea 
+		diferitelor implementari in cadrul modulului
+		+Sincronizarea Wavesurfer cu audio
+		+Rezolvarea erorilor in cadrul implementarii sincronizarii
+		api-ului wavesurfer cu audio 
 
 Saptamana 5: Integrarea proiectului cu celelalte module
 
