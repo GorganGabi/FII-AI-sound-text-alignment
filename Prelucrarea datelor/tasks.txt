@@ -30,17 +30,25 @@ componenta echipei:
 	Condrea Ana Maria
 
 
+	TASK-URI PE SAPTAMANA
 
 seminarul saptamanii 10:
 	Vatamanu Vlad Constantin:
 		+ research formate audio wav, raw
 		+ research librarii prelucrare audio
-	Ungureanu Ioana
+	Ungureanu Ioana:
 		+ research librarii prelucrare audio
+
+		* ./Prelucrarea datelor/stripAudio.py:
 		+ implementare functionalitate: conversie audio la wav, 16khz, 16-bit, 2 bytes/s
+
+		* ./Prelucrarea datelor/parseDictionary.py:
 		+ implementarea citirii unei mapari (cheie = cuvant) => (valoare = foneme):
-	Condrea Ana Maria
+
+	Condrea Ana Maria:
 		+ research librarii prelucrare audio
+
+		* ./Prelucrarea datelor/parseDictionary.py:
 		+ implementarea citirii unei mapari (cheie = cuvant) => (valoare = foneme):
 
 
@@ -48,68 +56,99 @@ seminarul saptamanii 11:
 	Vatamanu Vlad Constantin:
 		+ investigatie bug la conversie audio
 		+ discutie specificatii modul si proiect la nivel de grupa
-	Ungureanu Ioana
+
+	Ungureanu Ioana:
 		+ investigatie bug la conversie audio
 		+ discutie specificatii modul si proiect la nivel de grupa
-	Condrea Ana Maria
+
+	Condrea Ana Maria:
 		+ investigatie bug la conversie audio
 		+ discutie specificatii modul si proiect la nivel de grupa
 
 
 seminarul saptamanii 12:
-	Vatamanu Vlad Constantin
+	Vatamanu Vlad Constantin:
 			+ recunoasterea vocii: sedinta de brainstorming pentru idei de surse de date de antrenament (recunoasterea 				vocii)
 			+ research pe utilitate, avantaje & dezavantaje
 			+ sedinta de brainstorming pentru surse de date
+
+			* ./Prelucrarea datelor/lm-gen/wikiParse.py
 			+ stripuirea de metadate ale corpului de scrieri
 				- issue intalnit: codificarea diacriticelor
 					- solutii: post-processing automat, bug fixing la script de stripuire
+
+			* ./Prelucrarea datelor/lm-gen/mkvocab.py
 			+ crearea unui vocabular pe baza corpusului
+
+			* din ./Prelucrarea datelor/lm-gen: httpDownloader.py, buildCorpus.py
 			+ automatizarea procurarii si prelucrarii materiei prime
+
 			+ modelarea finala a limbajului pe baza corpului lingvistic generat
 			+ conversia modelului in format binar pentru spor de performanta
 
-	Ungureanu Ioana
+	Ungureanu Ioana:
 			+ recunoasterea vocii: sedinta de brainstorming pentru idei de surse de date de antrenament (recunoasterea 				vocii)
 			+ research pe utilitate, avantaje & dezavantaje
 			+ sedinta de brainstorming pentru surse de date
+
+			* ./Prelucrarea datelor/lm-gen/wikiParse.py
 			+ stripuirea de metadate ale corpului de scrieri
 				- issue intalnit: codificarea diacriticelor
 					- solutii: post-processing automat, bug fixing la script de stripuire
+
+			* ./Prelucrarea datelor/lm-gen/mkvocab.py
 			+ crearea unui vocabular pe baza corpusului
+
+			* din ./Prelucrarea datelor/lm-gen: httpDownloader.py, buildCorpus.py
 			+ automatizarea procurarii si prelucrarii materiei prime
+
 			+ modelarea finala a limbajului pe baza corpului lingvistic generat
 			+ conversia modelului in format binar pentru spor de performanta
 			+ prelucrare dictionar (cuvant => foneme)
 
-	Condrea Ana Maria
+	Condrea Ana Maria:
 			+ recunoasterea vocii: sedinta de brainstorming pentru idei de surse de date de antrenament (recunoasterea 				vocii)
 			+ research pe utilitate, avantaje & dezavantaje
 			+ sedinta de brainstorming pentru surse de date
+
+			* ./Prelucrarea datelor/lm-gen/wikiParse.py
 			+ stripuirea de metadate ale corpului de scrieri
 				- issue intalnit: codificarea diacriticelor
 					- solutii: post-processing automat, bug fixing la script de stripuire
+
+			* ./Prelucrarea datelor/lm-gen/mkvocab.py
 			+ crearea unui vocabular pe baza corpusului
+
+			* din ./Prelucrarea datelor/lm-gen: httpDownloader.py, buildCorpus.py
 			+ automatizarea procurarii si prelucrarii materiei prime
+
 			+ modelarea finala a limbajului pe baza corpului lingvistic generat
 			+ conversia modelului in format binar pentru spor de performanta
 
 
 seminarul saptamanii 13:
-	Vatamanu Vlad Constantin
+	Vatamanu Vlad Constantin:
 			+ research pentru imbunatatire model lingvistic
-	Ungureanu Ioana
+	Ungureanu Ioana:
 			+ research pentru imbunatatire model lingvistic
-	Condrea Ana Maria
+	Condrea Ana Maria:
 			+ research pentru imbunatatire model lingvistic
 
 seminarul saptamanii 14:
-	Vatamanu Vlad Constantin
+	Vatamanu Vlad Constantin:
 			+ procurare date de antrenament model acustic
+
+			* ./Prelucrarea datelor/docs.docx
 			+ redactare documentatia modulului de prelucrare a datelor
-	Ungureanu Ioana
+
+	Ungureanu Ioana:
 			+ procurare date de antrenament model acustic
+
+			* ./Prelucrarea datelor/docs.docx
 			+ redactare documentatia modulului de prelucrare a datelor
-	Condrea Ana Maria
+
+	Condrea Ana Maria:
 			+ procurare date de antrenament model acustic
+
+			* ./Prelucrarea datelor/docs.docx
 			+ redactare documentatia modulului de prelucrare a datelor
