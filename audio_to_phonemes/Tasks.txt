@@ -1,0 +1,23 @@
+TASKS:
+
+Baisan Razvan:
+-Transform_audio.py script - extracts phonemes/words from an audio file, after specifying a model
+-Generated ro_db.dic (phoneme dictionary) and ro_db.phone (phoneme set) for training
+-Parsed sphinxtrain log in order to obtain words missing from the dictionary
+-Generated phonetic transcription for missing words in the dictionary
+-Helped with various task (finding audio, discussing project strategy, etc)
+
+Ciulin Adrian:
+-Audio conversion script
+-Processed and sorted audio training data (training and testing)
+-Generation of transcription and fileid files (for training and testing)
+-Ran training of acoustic model
+-Tested acoustic model (over 70% accuracy on the selected test data)
+-Helped with various task (finding audio, discussing project strategy)
+
+Hirtobanu Gabriel:
+-Helped creating the language model
+-Helped with various tasks (finding audio, discussing project strategy, etc)
+
+Iulian-Gabriel Crisnuta
+-Helped with various tasks (finding audio, discussing project strategy, etc)
