@@ -13,4 +13,4 @@ wavesurfer.on('play', function () {
   wavesurfer.play()
 });
 
-wavesurfer.load('mySound.mp3');
+wavesurfer.load('mySound.wav');

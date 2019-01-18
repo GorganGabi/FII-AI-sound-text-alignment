@@ -36,9 +36,9 @@ module.exports.uploading = (req, res) => {
 
   const upload = multer({
     storage: storage,
-    fileFilter: function (req, file, cb) {
-      checkFileType(file, cb)
-    }
+    // fileFilter: function (req, file, cb) {
+    //   checkFileType(file, cb)
+    // }
   }).array('mySound', 2)
 
   upload(req, res, (err) => {
@@ -67,7 +67,7 @@ function get_sound_alignment_result (res, req) {
       console.log('[SERVER] Trimitem ca parametru fisierul primit catre modulul:' + path.join(root, 'Prelucrarea datelor/stripAudio.py'))
       const pythonProcess = spawn('py',
         [path.join(path.join(root, 'Prelucrarea datelor/stripAudio.py')),
-          path.join(process.cwd(), '/uploads/mySound.mp3'),
+          path.join(process.cwd(), '/uploads/mySound.wav'),
           path.join(process.cwd(), '/uploads/test.raw')
         ])
       let response = ''
@@ -86,8 +86,8 @@ function get_sound_alignment_result (res, req) {
         [path.join(path.join(root, 'text_alignment/text_alignment.py')),
           '-rec', path.join(path.join(process.cwd(), '/uploads/test.raw')), //argv [1] si argv[2]
           '-orig', path.join(path.join(process.cwd(), '/uploads/text.txt')), //argv [3] si argv[4]
-          '-out', path.join(path.join(process.cwd(), '/uploads/response.txt')), //argv [5] si argv[6]
-          // '-model=ro'
+          '-out', path.join(path.join(process.cwd(), '/uploads/response.json')), //argv [5] si argv[6]
+          '-m', 'ro'
         ])
       let response = ''
       pythonProcess.stdout.on('data', (data) => {
@@ -95,7 +95,7 @@ function get_sound_alignment_result (res, req) {
       })
       pythonProcess.stdout.on('end', () => {
         console.log('[SERVER] Am primit de la modulul de python urmatorul raspuns:')
-        fs.readFile(path.join(path.join(process.cwd(), '/uploads/response.txt')), function (err, data) {
+        fs.readFile(path.join(path.join(process.cwd(), '/uploads/response.json')), function (err, data) {
           if (err) {
             console.log(err)
             return cb(err)
