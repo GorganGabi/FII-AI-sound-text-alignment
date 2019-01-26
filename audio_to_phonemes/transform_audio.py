@@ -95,7 +95,7 @@ def get_words_from_file_experimental(file_path, detailed=False, model='en-us', c
     t = int(time.time()) % 1000
     log_name = 'log_messages_{}.log'.format(t)
 
-    command = "bin\\pocketsphinx_continuous.exe -verbose yes -backtrace yes -hmm {hmm} -lm {lm} -dict {dict} -logfn {log} -infile {file}".format(
+    command = 'bin\\pocketsphinx_continuous.exe -verbose yes -backtrace yes -hmm "{hmm}" -lm "{lm}" -dict "{dict}" -logfn "{log}" -infile "{file}"'.format(
         hmm=os.path.join(model_path, model),
         lm=os.path.join(model_path, '{m}\\{m}.lm.bin'.format(m=model)),
         dict=os.path.join(model_path, '{m}\\{m}.dict'.format(m=model)),
