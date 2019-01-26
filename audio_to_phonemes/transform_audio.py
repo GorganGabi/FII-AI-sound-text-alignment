@@ -1,5 +1,8 @@
 import os
+import re
 import sys
+import time
+from subprocess import Popen, PIPE
 
 print("Running Python {}".format(sys.version_info))
 
@@ -14,6 +17,28 @@ help = """Arguments for console usage:
 
 Example: transform_audio.py -p sample1.raw -model=it -d
 """
+
+def get_detailed_output(file_path):
+
+    lines = open(file_path).readlines()
+
+    output_begin_index = 0
+    output_end_index = 0
+
+    for i in range(0, len(lines)):
+        if lines[i].startswith("<s>"):
+            output_begin_index = i
+        if lines[i].startswith("</s>"):
+            output_end_index = i + 1
+
+    output = []
+
+    for i in range(output_begin_index, output_end_index):
+        line = re.split(r"\s+", lines[i])
+        output_entry = {'start': float(line[1]) / 100, 'end': float(line[2]) / 100, 'word': line[0]},
+        output += output_entry
+
+    return output
 
 
 def get_phonemes_from_file(file_path, detailed=False, model='en-us'):
@@ -63,6 +88,35 @@ def get_phonemes_from_file(file_path, detailed=False, model='en-us'):
     return phrases
 
 
+def get_words_from_file_experimental(file_path, detailed=False, model='en-us', cleanup=False):
+    model_path = get_model_path()
+    data_path = get_data_path()
+
+    t = int(time.time()) % 1000
+    log_name = 'log_messages_{}.log'.format(t)
+
+    command = "bin\\pocketsphinx_continuous.exe -verbose yes -backtrace yes -hmm {hmm} -lm {lm} -dict {dict} -logfn {log} -infile {file}".format(
+        hmm=os.path.join(model_path, model),
+        lm=os.path.join(model_path, '{m}\\{m}.lm.bin'.format(m=model)),
+        dict=os.path.join(model_path, '{m}\\{m}.dict'.format(m=model)),
+        log=log_name,
+        file=file_path
+    )
+
+    process = Popen(command, stdout=PIPE)
+    out, err = process.communicate()
+
+    output = get_detailed_output(log_name)
+
+    if cleanup:
+        try:
+            os.remove(log_name)
+        except:
+            print("Could not remove junk: {}".format(log_name))
+
+    return output
+
+
 def get_words_from_file(file_path, detailed=False, model='en-us'):
     """
     :param file_path: audio file (must be raw 16khz 16bit)
@@ -73,11 +127,22 @@ def get_words_from_file(file_path, detailed=False, model='en-us'):
     model_path = get_model_path()
     data_path = get_data_path()
 
+    #t = int(time.time()) % 1000
+    #os.mkdir('mfclog_{}'.format(t))
+    #os.mkdir('rawlog_{}'.format(t))
+    #os.mkdir('senlog_{}'.format(t))
+
     config = {
         'audio_file': file_path,
         'hmm': os.path.join(model_path, model),
         'lm': os.path.join(model_path, '{m}\\{m}.lm.bin'.format(m=model)),
-        'dict': os.path.join(model_path, '{m}\\{m}.dict'.format(m=model))
+        'dict': os.path.join(model_path, '{m}\\{m}.dict'.format(m=model)),
+        #'verbose': True,
+        #'logfn': 'log_messages_{}.log'.format(t),
+        #'mfclogdir': 'mfclog_{}'.format(t),
+        #'rawlogdir': 'rawlog_{}'.format(t),
+        #'senlogdir': 'senlog_{}'.format(t),
+        #'backtrace': True
     }
 
     for param in configuration['default_words']:
@@ -126,7 +191,7 @@ if __name__ == "__main__":
         if sys.argv[1] == '-p':
             f = get_phonemes_from_file
         if sys.argv[1] == '-w':
-            f = get_words_from_file
+            f = get_words_from_file_experimental
 
         if f is None:
             exit(0)
