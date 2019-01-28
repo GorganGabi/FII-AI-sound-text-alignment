@@ -30,6 +30,7 @@ Sapt5:
 	- modificari conform noilor cerinte - permitere de upload multiple fisiere
 Sapt6:
 	-documentatie finala
+	- bug fixing final integration
 
 
 Marian Vlad Stefan:
