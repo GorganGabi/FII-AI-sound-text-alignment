@@ -18,6 +18,7 @@ help = """Arguments for console usage:
 Example: transform_audio.py -p sample1.raw -model=it -d
 """
 
+
 def get_detailed_output(file_path):
 
     lines = open(file_path).readlines()
@@ -26,17 +27,19 @@ def get_detailed_output(file_path):
     output_end_index = 0
 
     for i in range(0, len(lines)):
-        if lines[i].startswith("<s>"):
-            output_begin_index = i
-        if lines[i].startswith("</s>"):
-            output_end_index = i + 1
+        if lines[i].startswith("[SEQUENCE START]"):
+            output_begin_index = i + 1
+        if lines[i].startswith("[SEQUENCE END]"):
+            output_end_index = i
 
     output = []
 
     for i in range(output_begin_index, output_end_index):
-        line = re.split(r"\s+", lines[i])
-        output_entry = {'start': float(line[1]) / 100, 'end': float(line[2]) / 100, 'word': line[0]},
-        output += output_entry
+        if not (lines[i].startswith("INFO") or lines[i].startswith("ERROR") or lines[i].startswith("WARN")):
+            line = re.split(r"\s+", lines[i])
+            
+            output_entry = {'start': float(line[1]) / 100, 'end': float(line[2]) / 100, 'word': line[0].lower()}
+            output.append(output_entry)
 
     return output
 
