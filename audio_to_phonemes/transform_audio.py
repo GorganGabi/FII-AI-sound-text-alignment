@@ -22,12 +22,14 @@ Example: transform_audio.py -p sample1.raw -model=it -d
 def remove_accents(input_str):
     nfkd_form = unicodedata.normalize('NFKD', input_str)
     only_ascii = nfkd_form.encode('ASCII', 'ignore')
-    return only_ascii.decode()
+    only_ascii = only_ascii.decode().replace("eTM", "s")
+    return only_ascii
 
 
 def get_detailed_output(file_path):
-    lines = open(file_path).readlines()
-
+    lines = open(file_path, 'rb').readlines()
+    for i in range(len(lines)):
+        lines[i] = lines[i].decode('utf-8')
     output_begin_index = 0
     output_end_index = 0
 
@@ -43,7 +45,9 @@ def get_detailed_output(file_path):
         if not (lines[i].startswith("INFO") or lines[i].startswith("ERROR") or lines[i].startswith("WARN")):
             line = re.split(r"\s+", lines[i])
 
-            output_entry = {'start': float(line[1]) / 100, 'end': float(line[2]) / 100, 'word': remove_accents(line[0].lower())}
+            output_entry = {'start': float(line[1]) / 100, 'end': float(line[2]) / 100,
+                            # 'word': remove_accents(line[0].lower())}
+                            'word': line[0]}
             output.append(output_entry)
 
     return output

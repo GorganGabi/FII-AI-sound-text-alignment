@@ -183,6 +183,8 @@ def get_lists(arguments):
     word_list1 = [elem["word"] for elem in file1_data]
     '''
     file1_data = get_words_from_file_experimental(arguments[0], detailed=True, model=arguments[3])
+    # for dict_word in file1_data:
+    #     dict_word["word"] = dict_word["word"].decode('iso8859_2')
     file1_data = [remove_word_number(elem) for elem in file1_data if dict_is_ok(elem)]
     word_list1 = [elem["word"] for elem in file1_data]
     file2 = open(arguments[1], "rb")
@@ -257,11 +259,12 @@ def get_romanian_lemmas(orig_list):
     input_file_handle.close()
     subprocess.call([TREE_TAGGER_PATH, "-lemma", ROMANIAN_PAR_PATH, input_file_name, output_file_name])
 
-    output_file_handle = open(output_file_name, 'r')
+    output_file_handle_lines = open(output_file_name, 'rb').readlines()
 
     i = 0
-    for line in output_file_handle:
-        lemma = line.split()[1]
+    for line in output_file_handle_lines:
+        decoded_line = line.decode()
+        lemma = decoded_line.split()[1]
 
         if lemma == '<unknown>':
             lemma_list.append(orig_list[i])
@@ -270,7 +273,7 @@ def get_romanian_lemmas(orig_list):
 
         i = i + 1
 
-    output_file_handle.close()
+    # output_file_handle_lines.close()
 
     os.remove(input_file_name)
     os.remove(output_file_name)
@@ -305,6 +308,10 @@ def run_lemma_align(arguments):
 
     lemma_list1 = get_lemma_list(word_lists[0])
     lemma_list2 = get_lemma_list(word_lists[1])
+    # lemma_list1 = [remove_word_diacritics(word) for word in lemma_list1]
+    # lemma_list2 = [remove_word_diacritics(word) for word in lemma_list2]
+    # print(lemma_list1)
+    # print(lemma_list2)
     if word_lists:
         alignment_res = align(lemma_list1, lemma_list2, gap_penalty, mismatch_penalty)
         create_result_dictionary(alignment_res, word_lists, arguments)

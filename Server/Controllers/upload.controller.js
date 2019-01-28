@@ -87,7 +87,8 @@ function get_sound_alignment_result (res, req) {
           '-rec',  path.join(root, 'Interfata/test.raw'), //argv [1] si argv[2]
           '-orig', path.join(root, 'Interfata/text.txt'), //argv [3] si argv[4]
           '-out', path.join(path.join(path.join(root, 'Interfata/vers.json'))), //argv [5] si argv[6]
-          '-m', 'ro'
+          '-m', 'ro',
+//            '-l'
         ]);
       let response = '';
       pythonProcess.stdout.on('data', (data) => {

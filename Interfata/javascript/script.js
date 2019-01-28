@@ -5,6 +5,7 @@ function upload() {
         var audioPlayer = document.getElementById('audiofile')
         audioPlayer.muted = true
         var subtitles = document.getElementById('subtitles')
+        subtitles.style.color = 'black';
         var syncData = data
 
         createSubtitle()
@@ -26,7 +27,7 @@ function upload() {
                         if (element.matched === 0) {
                             subtitles.children[index].style.background = 'red';
                         } else {
-                            subtitles.children[index].style.background = 'yellow';
+                            subtitles.children[index].style.background = 'limegreen';
                         }
 
                 }
