@@ -86,30 +86,31 @@ function get_sound_alignment_result (res, req) {
         [path.join(path.join(root, 'text_alignment/text_alignment.py')),
           '-rec', path.join(path.join(process.cwd(), '/uploads/test.raw')), //argv [1] si argv[2]
           '-orig', path.join(path.join(process.cwd(), '/uploads/text.txt')), //argv [3] si argv[4]
-          '-out', path.join(path.join(process.cwd(), '/uploads/response.json')), //argv [5] si argv[6]
+          '-out', path.join(path.join(path.join(root, 'Interfata/vers.json'))), //argv [5] si argv[6]
           '-m', 'ro'
-        ])
-      let response = ''
+        ]);
+      let response = '';
       pythonProcess.stdout.on('data', (data) => {
         response += data
-      })
+      });
       pythonProcess.stdout.on('end', () => {
-        console.log('[SERVER] Am primit de la modulul de python urmatorul raspuns:')
-        fs.readFile(path.join(path.join(process.cwd(), '/uploads/response.json')), function (err, data) {
-          if (err) {
-            console.log(err)
-            return cb(err)
-          }
-          fs.writeFile(path.join(root, 'Interfata/vers.json'), data, function (err) {
-            console.log(data)
-            if (err) {
-              return console.log(err)
-            }
-            data = JSON.parse(data)
-            cb(null, data)
-          })
-
-        })
+        console.log('[SERVER] Am primit de la modulul de python urmatorul raspuns:');
+          cb(null, responses)
+        // fs.readFile(path.join(path.join(process.cwd(), '/uploads/response.json')), function (err, data) {
+        //   if (err) {
+        //     console.log(err)
+        //     return cb(err)
+        //   }
+        //   fs.writeFile(path.join(root, 'Interfata/vers.json'), data, function (err) {
+        //     console.log(data)
+        //     if (err) {
+        //       return console.log(err)
+        //     }
+        //     data = JSON.parse(data)
+        //     cb(null, data)
+        //   })
+        //
+        // })
       })
     }
   ], (err, data) => {
