@@ -185,19 +185,18 @@ def get_lists(arguments):
     file1_data = get_words_from_file_experimental(arguments[0], detailed=True, model=arguments[3])
     file1_data = [remove_word_number(elem) for elem in file1_data if dict_is_ok(elem)]
     word_list1 = [elem["word"] for elem in file1_data]
-
     file2 = open(arguments[1], "rb")
     word_list2 = []
     for line in file2:
-        line = line.decode()
+        line = line.decode().strip()
         line_word_list = [x for x in re.split(",|\s+|\.|;|:|\*+|\n", line) if x]
         word_list2.extend(line_word_list)
 
-    word_list1 = [word.lower() for word in word_list1]
     word_list1 = [remove_word_diacritics(word) for word in word_list1]
-    word_list2 = [word.lower() for word in word_list2]
+    word_list1 = [word.lower() for word in word_list1]
     word_list2 = [remove_word_diacritics(word) for word in word_list2]
-
+    word_list2 = [word.lower() for word in word_list2]
+    word_list2[0] = word_list2[0][1:]
     return [word_list1, word_list2, file1_data]
 
 
