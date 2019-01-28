@@ -2,6 +2,7 @@ import os
 import re
 import sys
 import time
+import unicodedata
 from subprocess import Popen, PIPE
 
 print("Running Python {}".format(sys.version_info))
@@ -16,6 +17,12 @@ help = """Arguments for console usage:
 
 Example: transform_audio.py -p sample1.raw -model=it -d
 """
+
+
+def remove_accents(input_str):
+    nfkd_form = unicodedata.normalize('NFKD', input_str)
+    only_ascii = nfkd_form.encode('ASCII', 'ignore')
+    return only_ascii.decode()
 
 
 def get_detailed_output(file_path):
@@ -35,8 +42,8 @@ def get_detailed_output(file_path):
     for i in range(output_begin_index, output_end_index):
         if not (lines[i].startswith("INFO") or lines[i].startswith("ERROR") or lines[i].startswith("WARN")):
             line = re.split(r"\s+", lines[i])
-            
-            output_entry = {'start': float(line[1]) / 100, 'end': float(line[2]) / 100, 'word': line[0].lower()}
+
+            output_entry = {'start': float(line[1]) / 100, 'end': float(line[2]) / 100, 'word': remove_accents(line[0].lower())}
             output.append(output_entry)
 
     return output
