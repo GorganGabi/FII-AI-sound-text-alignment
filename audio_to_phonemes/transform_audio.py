@@ -10,7 +10,6 @@ print("Running Python {}".format(sys.version_info))
 from pocketsphinx import AudioFile, get_model_path, get_data_path
 from transform_audio_configs import configuration
 
-
 help = """Arguments for console usage:
 -h\tShow this
 -p <file_path>\tExtract phonemes
@@ -23,13 +22,14 @@ Example: transform_audio.py -p sample1.raw -model=it -d
 def remove_accents(input_str):
     nfkd_form = unicodedata.normalize('NFKD', input_str)
     only_ascii = nfkd_form.encode('ASCII', 'ignore')
-    return only_ascii.decode()
+    only_ascii = only_ascii.decode().replace("eTM", "s")
+    return only_ascii
 
 
 def get_detailed_output(file_path):
-
-    lines = open(file_path).readlines()
-
+    lines = open(file_path, 'rb').readlines()
+    for i in range(len(lines)):
+        lines[i] = lines[i].decode('utf-8')
     output_begin_index = 0
     output_end_index = 0
 
@@ -45,7 +45,9 @@ def get_detailed_output(file_path):
         if not (lines[i].startswith("INFO") or lines[i].startswith("ERROR") or lines[i].startswith("WARN")):
             line = re.split(r"\s+", lines[i])
 
-            output_entry = {'start': float(line[1]) / 100, 'end': float(line[2]) / 100, 'word': remove_accents(line[0].lower())}
+            output_entry = {'start': float(line[1]) / 100, 'end': float(line[2]) / 100,
+                            # 'word': remove_accents(line[0].lower())}
+                            'word': line[0]}
             output.append(output_entry)
 
     return output
@@ -88,7 +90,7 @@ def get_phonemes_from_file(file_path, detailed=False, model='en-us'):
         for phrase in phrases:
 
             for p in phrase:
-                out_list.append({"phoneme": p[0], "start": p[2]/100.00, "end": p[3]/100.00})
+                out_list.append({"phoneme": p[0], "start": p[2] / 100.00, "end": p[3] / 100.00})
 
         return out_list
 
@@ -104,18 +106,15 @@ def get_words_from_file_experimental(file_path, detailed=False, model='en-us', c
 
     t = int(time.time()) % 1000
     log_name = 'log_messages_{}.log'.format(t)
-
-    command = 'bin\\pocketsphinx_continuous.exe -verbose yes -backtrace yes -hmm "{hmm}" -lm "{lm}" -dict "{dict}" -logfn "{log}" -infile "{file}"'.format(
+    command = '..\\audio_to_phonemes\\bin\\pocketsphinx_continuous.exe -verbose yes -backtrace yes -hmm "{hmm}" -lm "{lm}" -dict "{dict}" -logfn "{log}" -infile "{file}"'.format(
         hmm=os.path.join(model_path, model),
         lm=os.path.join(model_path, '{m}\\{m}.lm.bin'.format(m=model)),
         dict=os.path.join(model_path, '{m}\\{m}.dict'.format(m=model)),
         log=log_name,
         file=file_path
     )
-
-    process = Popen(command, stdout=PIPE)
+    process = Popen(command, stdout=sys.stdout, stderr=sys.stderr)
     out, err = process.communicate()
-
     output = get_detailed_output(log_name)
 
     if cleanup:
@@ -137,22 +136,22 @@ def get_words_from_file(file_path, detailed=False, model='en-us'):
     model_path = get_model_path()
     data_path = get_data_path()
 
-    #t = int(time.time()) % 1000
-    #os.mkdir('mfclog_{}'.format(t))
-    #os.mkdir('rawlog_{}'.format(t))
-    #os.mkdir('senlog_{}'.format(t))
+    # t = int(time.time()) % 1000
+    # os.mkdir('mfclog_{}'.format(t))
+    # os.mkdir('rawlog_{}'.format(t))
+    # os.mkdir('senlog_{}'.format(t))
 
     config = {
         'audio_file': file_path,
         'hmm': os.path.join(model_path, model),
         'lm': os.path.join(model_path, '{m}\\{m}.lm.bin'.format(m=model)),
         'dict': os.path.join(model_path, '{m}\\{m}.dict'.format(m=model)),
-        #'verbose': True,
-        #'logfn': 'log_messages_{}.log'.format(t),
-        #'mfclogdir': 'mfclog_{}'.format(t),
-        #'rawlogdir': 'rawlog_{}'.format(t),
-        #'senlogdir': 'senlog_{}'.format(t),
-        #'backtrace': True
+        # 'verbose': True,
+        # 'logfn': 'log_messages_{}.log'.format(t),
+        # 'mfclogdir': 'mfclog_{}'.format(t),
+        # 'rawlogdir': 'rawlog_{}'.format(t),
+        # 'senlogdir': 'senlog_{}'.format(t),
+        # 'backtrace': True
     }
 
     for param in configuration['default_words']:
@@ -176,8 +175,7 @@ def get_words_from_file(file_path, detailed=False, model='en-us'):
         for phrase in phrases:
 
             for p in phrase:
-
-                out_list.append({"word": p[0], "start": p[2]/100.00, "end": p[3]/100.00})
+                out_list.append({"word": p[0], "start": p[2] / 100.00, "end": p[3] / 100.00})
 
         return out_list
 
@@ -206,14 +204,14 @@ if __name__ == "__main__":
         if f is None:
             exit(0)
 
-        model='en-us'
+        model = 'en-us'
         for arg in sys.argv:
             if arg.startswith('-model='):
                 model = arg.split('=')[1]
 
-        detailed=False
+        detailed = False
         if '-d' in sys.argv:
-            detailed=True
+            detailed = True
 
         if os.path.exists(sys.argv[2]) and os.path.isfile(sys.argv[2]):
             phrases = f(sys.argv[2], detailed=detailed, model=model)
