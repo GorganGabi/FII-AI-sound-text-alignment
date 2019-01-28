@@ -11,7 +11,7 @@ import subprocess
 
 sys.path.insert(0, '..\\audio_to_phonemes')
 
-from transform_audio import get_words_from_file
+from transform_audio import get_words_from_file_experimental
 
 TREE_TAGGER_PATH = r"C:\TreeTagger\bin\tree-tagger.exe"
 ROMANIAN_PAR_PATH = r"C:\TreeTagger\lib\romanian-utf8.par"
@@ -137,9 +137,7 @@ def remove_diacritics(file):
 
 def remove_word_diacritics(word):
     diacritics_dict = {'ș': 's', 'ț': 't', 'î': 'i', 'ă': 'a', 'â': 'a'}
-
     new_word = word
-
     for diac in diacritics_dict:
         try:
             while diac in word:
@@ -184,15 +182,14 @@ def get_lists(arguments):
     file1_data = [remove_word_number(elem) for elem in file1_data if dict_is_ok(elem)]
     word_list1 = [elem["word"] for elem in file1_data]
     '''
-
-    file1_data = get_words_from_file(arguments[0], detailed=True, model=arguments[3])
+    file1_data = get_words_from_file_experimental(arguments[0], detailed=True, model=arguments[3])
     file1_data = [remove_word_number(elem) for elem in file1_data if dict_is_ok(elem)]
     word_list1 = [elem["word"] for elem in file1_data]
 
-    file2 = open(arguments[1], "r")
+    file2 = open(arguments[1], "rb")
     word_list2 = []
-
     for line in file2:
+        line = line.decode()
         line_word_list = [x for x in re.split(",|\s+|\.|;|:|\*+|\n", line) if x]
         word_list2.extend(line_word_list)
 
@@ -309,7 +306,6 @@ def run_lemma_align(arguments):
 
     lemma_list1 = get_lemma_list(word_lists[0])
     lemma_list2 = get_lemma_list(word_lists[1])
-
     if word_lists:
         alignment_res = align(lemma_list1, lemma_list2, gap_penalty, mismatch_penalty)
         create_result_dictionary(alignment_res, word_lists, arguments)
