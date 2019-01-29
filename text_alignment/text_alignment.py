@@ -215,7 +215,8 @@ def create_result_dictionary(alignment_res, word_lists, arguments):
             word_dict = dict()
             word_dict["end"] = dict_list[i - nr_blanks1]["end"]
             word_dict["start"] = dict_list[i - nr_blanks1]["start"]
-            word_dict["word"] = align_list1[i - nr_blanks1]
+            # word_dict["word"] = align_list1[i - nr_blanks1]
+            word_dict['word'] = word_lists[0][i - nr_blanks1]
             word_dict["matched"] = 1
             res_dict_list.append(word_dict)
         elif align_list1[i] == "_":
@@ -310,6 +311,7 @@ def run_lemma_align(arguments):
     lemma_list2 = get_lemma_list(word_lists[1])
     # lemma_list1 = [remove_word_diacritics(word) for word in lemma_list1]
     # lemma_list2 = [remove_word_diacritics(word) for word in lemma_list2]
+    # print(word_lists[0])
     # print(lemma_list1)
     # print(lemma_list2)
     if word_lists:

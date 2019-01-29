@@ -88,7 +88,7 @@ function get_sound_alignment_result (res, req) {
           '-orig', path.join(root, 'Interfata/text.txt'), //argv [3] si argv[4]
           '-out', path.join(path.join(path.join(root, 'Interfata/vers.json'))), //argv [5] si argv[6]
           '-m', 'ro',
-//            '-l'
+          '-l'
         ]);
       let response = '';
       pythonProcess.stdout.on('data', (data) => {
@@ -118,7 +118,7 @@ function get_sound_alignment_result (res, req) {
     if (err) {
       return res.send('eroare sefu')
     }
-    res.json({syncData: data})
+    res.json({msg:"Success"})
   })
 
 }
