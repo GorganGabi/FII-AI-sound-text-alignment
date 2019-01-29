@@ -23,12 +23,13 @@ function upload() {
 
         audioPlayer.addEventListener('timeupdate', function (e) {
             syncData.forEach(function (element, index, array) {
-                    if (audioPlayer.currentTime >= element.start && audioPlayer.currentTime <= element.end)
+                if (audioPlayer.currentTime >= element.start ) {
                         if (element.matched === 0) {
                             subtitles.children[index].style.background = 'red';
                         } else {
                             subtitles.children[index].style.background = 'limegreen';
                         }
+                    }
 
                 }
             )
